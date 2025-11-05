@@ -1,3 +1,4 @@
+import { google } from "@ai-sdk/google"
 import { consumeStream, convertToModelMessages, streamText, generateText, type UIMessage } from "ai"
 
 export const maxDuration = 30
@@ -37,18 +38,19 @@ Exemples de réponses :
 async function isHistoryRelated(question: string): Promise<boolean> {
   try {
     const { text } = await generateText({
-      model: "anthropic/claude-sonnet-4.5",
+      model: google("gemini-2.0-flash-exp"),
       prompt: `Tu es un filtre de contenu. Détermine si la question suivante concerne l'histoire (événements historiques, personnages historiques, périodes historiques, civilisations, guerres, découvertes historiques, etc.).
 
 Question : "${question}"
 
-Réponds uniquement par "OUI" si la question concerne l'histoire, ou "NON" si elle ne concerne pas l'histoire.
-Les questions sur la culture, l'art, la science ou la politique sont considérées comme historiques si elles se réfèrent à des périodes ou événements passés.`,
-      maxOutputTokens: 10,
+Réponds UNIQUEMENT par un seul mot : "OUI" ou "NON".`,
+      maxTokens: 10,
       temperature: 0,
     })
 
-    return text.trim().toUpperCase().includes("OUI")
+    console.log("[v0] History validation response:", text)
+    const response = text.trim().toUpperCase()
+    return response.includes("OUI") || response === "YES"
   } catch (error) {
     console.error("[v0] Error validating history question:", error)
     // En cas d'erreur, on laisse passer la question
@@ -82,11 +84,10 @@ export async function POST(req: Request) {
   const prompt = convertToModelMessages([{ role: "system", content: SYSTEM_PROMPT }, ...messages])
 
   const result = streamText({
-    model: "anthropic/claude-sonnet-4.5",
-    prompt,
-    abortSignal: req.signal,
-    maxOutputTokens: 1000,
-    temperature: 0.5, // Température réduite pour des réponses plus précises et neutres
+    model: google("gemini-2.0-flash-exp"),
+    messages: prompt,
+    maxTokens: 1000,
+    temperature: 0.5,
   })
 
   return result.toUIMessageStreamResponse({
