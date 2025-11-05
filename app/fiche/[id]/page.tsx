@@ -5,7 +5,7 @@ import { Button } from "@/components/ui/button"
 import { Card } from "@/components/ui/card"
 import { BookOpen, Clock, ArrowLeft, Users, MapPin, Lightbulb, TrendingUp, CheckCircle2, XCircle } from "lucide-react"
 import Link from "next/link"
-import { useState } from "react"
+import { Usable, use, useState } from "react"
 
 type Theme = "empires" | "wars" | "societies"
 
@@ -842,8 +842,9 @@ function QuizSection({ cardId }: { cardId: number }) {
   )
 }
 
-export default function FichePage({ params }: { params: { id: string } }) {
-  const card = detailedFlashcards.find((c) => c.id === Number.parseInt(params.id))
+export default function FichePage({ params }: {params: Usable<{ id: string; }>}) {
+  const { id } = use<{id: string}>(params)
+  const card = detailedFlashcards.find((c) => c.id === Number.parseInt(id))
 
   if (!card) {
     notFound()
