@@ -3,6 +3,8 @@ import { consumeStream, convertToModelMessages, streamText, generateText, type U
 
 export const maxDuration = 30
 
+const MODEL = "gemini-2.5-flash-lite"
+
 const SYSTEM_PROMPT = `Tu es un assistant historique expert, neutre et objectif qui aide les utilisateurs à découvrir et comprendre l'histoire. Tu réponds en français de manière claire, engageante et éducative.
 
 FICHES DISPONIBLES SUR LE SITE :
@@ -38,13 +40,13 @@ Exemples de réponses :
 async function isHistoryRelated(question: string): Promise<boolean> {
   try {
     const { text } = await generateText({
-      model: google("gemini-2.0-flash-exp"),
+      model: google(MODEL),
       prompt: `Tu es un filtre de contenu. Détermine si la question suivante concerne l'histoire (événements historiques, personnages historiques, périodes historiques, civilisations, guerres, découvertes historiques, etc.).
 
 Question : "${question}"
 
 Réponds UNIQUEMENT par un seul mot : "OUI" ou "NON".`,
-      maxTokens: 10,
+      maxOutputTokens: 20,
       temperature: 0,
     })
 
@@ -81,12 +83,13 @@ export async function POST(req: Request) {
     }
   }
 
-  const prompt = convertToModelMessages([{ role: "system", content: SYSTEM_PROMPT }, ...messages])
+  const systemMessage = { role: "system", parts: [{ type: "text", text: SYSTEM_PROMPT }] } as UIMessage
+  const prompt = convertToModelMessages([systemMessage, ...messages])
 
   const result = streamText({
-    model: google("gemini-2.0-flash-exp"),
+    model: google(MODEL),
     messages: prompt,
-    maxTokens: 1000,
+    maxOutputTokens: 1000,
     temperature: 0.5,
   })
 
