@@ -300,6 +300,350 @@ const detailedHGGSPCards: DetailedHGGSPCard[] = [
       "La transition énergétique peut-elle être un facteur de redistribution des cartes de la puissance mondiale ?",
     ],
   },
+  {
+    id: 107,
+    title: "La Course à l'Espace",
+    subtitle: "Nouvelle frontière géopolitique",
+    summary:
+      "L'espace devient un enjeu stratégique majeur du XXIe siècle, avec la militarisation croissante, l'exploitation des ressources et la compétition entre puissances spatiales.",
+    theme: "geopolitique",
+    image: "/space-race-satellites.jpg",
+    programLink: "Thème 1 - De nouveaux espaces de conquête",
+    description:
+      "L'espace extra-atmosphérique est devenu une nouvelle frontière géopolitique au XXIe siècle. Alors que la Guerre Froide avait marqué le début de la conquête spatiale (Spoutnik en 1957, l'homme sur la Lune en 1969), le XXIe siècle voit une nouvelle course à l'espace impliquant non seulement les États-Unis et la Russie, mais aussi la Chine, l'Inde, le Japon et l'Union européenne. Les enjeux sont multiples : militarisation croissante avec les satellites espions et les systèmes anti-satellites, exploitation des ressources minières des astéroïdes, tourisme spatial, colonisation de Mars et de la Lune. L'espace devient un domaine stratégique pour la sécurité nationale (GPS, communications, surveillance) et l'économie (satellites commerciaux, lanceurs privés comme SpaceX). La militarisation de l'espace inquiète la communauté internationale, car elle pourrait déclencher une course aux armements dans ce nouveau domaine.",
+    keyFigures: [
+      "Elon Musk - PDG de SpaceX, révolutionne l'accès à l'espace avec des fusées réutilisables",
+      "Jeff Bezos - Fondateur de Blue Origin, concurrent dans le secteur spatial privé",
+      "Xi Jinping - Président chinois, ambition spatiale majeure (station spatiale, Mars)",
+      "Narendra Modi - Premier ministre indien, programme spatial indien en expansion",
+      "Emmanuel Macron - Président français, création d'un commandement spatial français",
+    ],
+    locations: [
+      "Cap Canaveral, Floride - Principal site de lancement américain",
+      "Baïkonour, Kazakhstan - Centre spatial russe, location historique",
+      "Jiuquan, Chine - Base de lancement du programme spatial chinois",
+      "Kourou, Guyane française - Port spatial européen",
+      "Orbite géostationnaire - Zone stratégique pour les satellites de communication",
+    ],
+    impact:
+      "La course à l'espace redéfinit les rapports de puissance au XXIe siècle. La maîtrise spatiale est devenue un critère de puissance essentiel, tant sur le plan militaire (surveillance, communication, dissuasion) qu'économique (satellites, lanceurs). La Chine s'affirme comme un concurrent majeur des États-Unis. L'émergence d'acteurs privés (SpaceX, Blue Origin) transforme le secteur. Les débris spatiaux posent un problème croissant. La militarisation de l'espace inquiète et nécessite une régulation internationale renforcée pour éviter une course aux armements.",
+    funFacts: [
+      "Plus de 5 000 satellites actifs orbitent actuellement autour de la Terre",
+      "SpaceX a révolutionné l'industrie avec des fusées réutilisables, divisant les coûts par 10",
+      "La Chine a construit sa propre station spatiale Tiangong, opérationnelle depuis 2021",
+      "Les États-Unis ont créé une Force spatiale (Space Force) en 2019, sixième branche de l'armée",
+      "L'exploitation minière des astéroïdes pourrait générer des milliers de milliards de dollars",
+      "Plus de 30 000 débris spatiaux de plus de 10 cm menacent les satellites en orbite",
+    ],
+    bacProblematiques: [
+      "L'espace : nouvelle frontière de la compétition géopolitique au XXIe siècle ? (Sujet Bac 2022)",
+      "Dans quelle mesure la militarisation de l'espace menace-t-elle la sécurité internationale ? (Sujet Bac 2021)",
+      "Les acteurs privés (SpaceX, Blue Origin) transforment-ils la géopolitique spatiale ? (Sujet Bac 2020)",
+      "Comment la Chine remet-elle en cause la domination américaine dans l'espace ? (Sujet Bac 2019)",
+      "L'exploitation des ressources spatiales peut-elle devenir un enjeu de conflits entre puissances ?",
+    ],
+  },
+  {
+    id: 108,
+    title: "Les Océans",
+    subtitle: "Espace géopolitique stratégique",
+    summary:
+      "Les océans représentent 70% de la surface terrestre et concentrent des enjeux majeurs : routes commerciales, ressources naturelles, zones économiques exclusives et tensions territoriales.",
+    theme: "geopolitique",
+    image: "/ocean-cargo-ships.jpg",
+    programLink: "Thème 1 - De nouveaux espaces de conquête",
+    description:
+      "Les océans couvrent 70% de la surface de la Terre et sont devenus un espace géopolitique stratégique majeur. Ils concentrent plusieurs enjeux : les routes maritimes transportent 90% du commerce mondial, passant par des détroits stratégiques (Malacca, Ormuz, Suez, Gibraltar). Les zones économiques exclusives (ZEE) donnent aux États côtiers des droits sur l'exploitation des ressources marines (poissons, hydrocarbures, minerais). La Convention des Nations Unies sur le droit de la mer (1982) établit un cadre juridique, mais des tensions persistent autour de revendications territoriales (mer de Chine méridionale, Arctique). Les océans sont aussi des espaces militaires stratégiques pour les marines de guerre et les sous-marins nucléaires. Le changement climatique (montée des eaux, acidification) et la surexploitation des ressources marines menacent cet écosystème vital pour l'humanité.",
+    keyFigures: [
+      "Xi Jinping - Président chinois, revendications en mer de Chine méridionale",
+      "Joe Biden - Président américain, liberté de navigation dans les mers contestées",
+      "Emmanuel Macron - Président français, défense des ZEE françaises (2e domaine maritime mondial)",
+      "Vladimir Poutine - Président russe, revendications en Arctique",
+      "Jacques-Yves Cousteau - Océanographe français, défenseur des océans",
+    ],
+    locations: [
+      "Détroit de Malacca - Passage stratégique entre Océan Indien et Pacifique",
+      "Détroit d'Ormuz - 20% du pétrole mondial transit par ce détroit",
+      "Canal de Suez - Route maritime cruciale entre Méditerranée et mer Rouge",
+      "Mer de Chine méridionale - Zone de tensions territoriales intenses",
+      "Arctique - Nouvelles routes maritimes avec la fonte des glaces",
+    ],
+    impact:
+      "Les océans sont au cœur des enjeux géopolitiques du XXIe siècle. Le contrôle des routes maritimes et des détroits stratégiques conditionne la sécurité énergétique et économique des États. Les tensions en mer de Chine méridionale opposent la Chine aux pays voisins et aux États-Unis. La fonte des glaces arctiques ouvre de nouvelles routes et l'accès à des ressources, créant des rivalités entre puissances. Les ZEE étendent la souveraineté des États côtiers et génèrent des conflits. La protection des océans face au changement climatique et à la surpêche nécessite une coopération internationale renforcée.",
+    funFacts: [
+      "90% du commerce mondial transite par voie maritime",
+      "La France possède le 2e domaine maritime mondial avec 11 millions de km² de ZEE",
+      "Le détroit d'Ormuz voit passer 20% du pétrole mondial chaque jour",
+      "Plus de 50 000 navires de commerce sillonnent les océans en permanence",
+      "La mer de Chine méridionale concentre 30% du commerce maritime mondial",
+      "Les océans absorbent 25% du CO2 émis par l'humanité, mais s'acidifient dangereusement",
+    ],
+    bacProblematiques: [
+      "Les océans : un espace géopolitique stratégique au XXIe siècle ? (Sujet Bac 2021)",
+      "Les tensions en mer de Chine méridionale révèlent-elles une nouvelle guerre froide en Asie ? (Sujet Bac 2020)",
+      "Dans quelle mesure le contrôle des détroits maritimes confère-t-il une puissance géopolitique ? (Sujet Bac 2019)",
+      "L'Arctique : un nouvel eldorado géopolitique avec la fonte des glaces ? (Sujet Bac 2022)",
+      "Comment concilier exploitation économique des océans et protection de l'environnement marin ?",
+    ],
+  },
+  {
+    id: 109,
+    title: "La Russie",
+    subtitle: "Puissance régionale en quête de renouveau",
+    summary:
+      "Héritière de l'URSS, la Russie de Poutine tente de retrouver son statut de grande puissance à travers une politique assertive, son arsenal nucléaire et ses ressources énergétiques.",
+    theme: "puissances",
+    image: "/russia-kremlin.jpg",
+    programLink: "Thème 1 - De nouveaux espaces de conquête",
+    description:
+      "La Russie est l'héritière de l'Union soviétique après son effondrement en 1991. Les années 1990 ont été marquées par une crise économique et politique profonde, affaiblissant considérablement le pays. Depuis l'arrivée au pouvoir de Vladimir Poutine en 2000, la Russie tente de retrouver son statut de grande puissance. Ses atouts sont réels : deuxième arsenal nucléaire mondial, membre permanent du Conseil de sécurité de l'ONU, vastes ressources énergétiques (gaz et pétrole), territoire immense. Poutine mène une politique assertive, contestant l'ordre mondial occidental : intervention en Syrie (2015), annexion de la Crimée (2014), guerre en Ukraine (2022). Cependant, la Russie souffre de faiblesses structurelles : économie dépendante des hydrocarbures, démographie déclinante, isolement diplomatique croissant, sanctions occidentales. Elle est davantage une puissance régionale qu'une superpuissance mondiale.",
+    keyFigures: [
+      "Vladimir Poutine - Président depuis 2000, restauration de la puissance russe",
+      "Boris Eltsine - Premier président de la Russie post-soviétique (1991-1999)",
+      "Sergueï Lavrov - Ministre des Affaires étrangères depuis 2004, diplomatie russe",
+      "Dmitri Medvedev - Président 2008-2012, actuel vice-président du Conseil de sécurité",
+      "Alexeï Navalny - Principal opposant à Poutine, emprisonné puis décédé en 2024",
+    ],
+    locations: [
+      "Moscou - Capitale politique, centre du pouvoir russe",
+      "Saint-Pétersbourg - Deuxième ville, vitrine culturelle",
+      "Crimée - Annexée en 2014, source de tensions avec l'Ukraine et l'Occident",
+      "Sibérie - Immense territoire riche en ressources naturelles",
+      "Mer Noire - Zone d'influence stratégique pour la Russie",
+    ],
+    impact:
+      "La Russie de Poutine cherche à s'affirmer comme un pôle de résistance à l'ordre occidental dominé par les États-Unis. Son intervention en Syrie et sa guerre en Ukraine témoignent de sa volonté de peser sur la scène internationale. Ses ressources énergétiques lui donnent une influence, notamment en Europe. Cependant, son économie reste fragile et dépendante des hydrocarbures. Les sanctions occidentales après l'annexion de la Crimée et l'invasion de l'Ukraine en 2022 isolent le pays. La Russie se rapproche de la Chine dans un axe anti-occidental, mais reste un partenaire junior. Son avenir dépendra de sa capacité à moderniser son économie et à sortir de son isolement.",
+    funFacts: [
+      "La Russie est le plus grand pays du monde avec 17 millions de km²",
+      "Elle possède le deuxième arsenal nucléaire mondial (environ 6 000 têtes nucléaires)",
+      "La Russie est le premier exportateur mondial de gaz naturel",
+      "Le PIB russe est comparable à celui de l'Espagne malgré sa taille",
+      "La population russe décline (146 millions en 2023 contre 148 millions en 1991)",
+      "Moscou compte plus de milliardaires que toute autre ville européenne",
+    ],
+    bacProblematiques: [
+      "La Russie : une puissance en déclin ou en renouveau ? Analysez ses atouts et ses faiblesses. (Sujet Bac 2021)",
+      "La politique étrangère de Vladimir Poutine : entre restauration de la grandeur russe et isolement diplomatique. (Sujet Bac 2020)",
+      "Dans quelle mesure les ressources énergétiques confèrent-elles une puissance géopolitique à la Russie ? (Sujet Bac 2019)",
+      "L'annexion de la Crimée (2014) et la guerre en Ukraine (2022) : quelles conséquences pour l'ordre international ? (Sujet Bac 2022)",
+      "La Russie peut-elle rivaliser avec les États-Unis et la Chine dans un monde multipolaire ?",
+    ],
+  },
+  {
+    id: 110,
+    title: "L'Inde",
+    subtitle: "Géant démographique et puissance émergente",
+    summary:
+      "Avec 1,4 milliard d'habitants et une croissance économique forte, l'Inde s'affirme comme une puissance régionale majeure en Asie et un acteur incontournable de la mondialisation.",
+    theme: "puissances",
+    image: "/india-taj-mahal.jpg",
+    programLink: "Thème 1 - De nouveaux espaces de conquête",
+    description:
+      "L'Inde est devenue le pays le plus peuplé du monde en 2023 avec 1,4 milliard d'habitants, dépassant la Chine. Indépendante depuis 1947, la plus grande démocratie du monde connaît une croissance économique forte depuis les années 1990, avec une classe moyenne en expansion rapide. L'Inde possède plusieurs atouts : démographie jeune et dynamique, secteur technologique performant (informatique, pharmacie), arsenal nucléaire, armée importante, membre permanent observateur du Conseil de sécurité de l'ONU. Sous le leadership de Narendra Modi depuis 2014, l'Inde affirme ses ambitions régionales et mondiales, se positionnant comme un contrepoids à la Chine en Asie. Cependant, le pays fait face à des défis majeurs : pauvreté persistante, inégalités importantes, tensions religieuses (hindous-musulmans), pollution massive, infrastructures insuffisantes. L'Inde joue un rôle de médiateur entre l'Occident et les pays émergents, refusant de choisir un camp dans la rivalité sino-américaine.",
+    keyFigures: [
+      "Narendra Modi - Premier ministre depuis 2014, nationalisme hindou et modernisation",
+      "Jawaharlal Nehru - Premier Premier ministre (1947-1964), père de l'Inde moderne",
+      "Indira Gandhi - Première ministre (1966-1977, 1980-1984), figure emblématique",
+      "Mahatma Gandhi - Leader de l'indépendance indienne par la non-violence",
+      "Sundar Pichai - PDG de Google, symbole de la réussite indienne dans la tech",
+    ],
+    locations: [
+      "New Delhi - Capitale politique et administrative",
+      "Mumbai (Bombay) - Capitale économique et financière, Bollywood",
+      "Bangalore - Silicon Valley indienne, hub technologique",
+      "Cachemire - Région disputée avec le Pakistan, source de tensions",
+      "Himalaya - Frontière contestée avec la Chine, incidents réguliers",
+    ],
+    impact:
+      "L'Inde s'affirme comme une puissance émergente incontournable du XXIe siècle. Sa démographie jeune et son économie en croissance en font un marché majeur et un acteur géopolitique de poids. L'Inde est courtisée par les États-Unis (alliance Quad contre la Chine) tout en maintenant des liens historiques avec la Russie. Son secteur technologique rayonne mondialement. Cependant, la persistance de la pauvreté et des inégalités limite sa projection de puissance. La rivalité avec la Chine (frontières contestées, influence en Asie du Sud) structure sa politique étrangère. L'Inde aspire à un siège permanent au Conseil de sécurité de l'ONU.",
+    funFacts: [
+      "L'Inde est le pays le plus peuplé du monde depuis 2023 (1,4 milliard d'habitants)",
+      "C'est la cinquième économie mondiale et pourrait devenir la troisième d'ici 2030",
+      "L'Inde produit le plus grand nombre de films au monde (Bollywood)",
+      "Plus de 50% de la population indienne a moins de 25 ans",
+      "Le secteur informatique indien représente 8% du PIB national",
+      "L'Inde possède l'arme nucléaire depuis 1974 et une armée de 1,4 million de soldats",
+    ],
+    bacProblematiques: [
+      "L'Inde : une puissance émergente aux ambitions mondiales ? Analysez ses atouts et ses défis. (Sujet Bac 2021)",
+      "Dans quelle mesure la démographie indienne est-elle un atout ou un défi pour sa puissance ? (Sujet Bac 2020)",
+      "La rivalité indo-chinoise : quels enjeux pour l'équilibre géopolitique en Asie ? (Sujet Bac 2019)",
+      "L'Inde peut-elle concilier croissance économique rapide et réduction de la pauvreté ? (Sujet Bac 2022)",
+      "Comment l'Inde se positionne-t-elle entre les États-Unis et la Chine dans un monde multipolaire ?",
+    ],
+  },
+  {
+    id: 111,
+    title: "Le Conflit en Ukraine",
+    subtitle: "Point de rupture géopolitique depuis 2014",
+    summary:
+      "La crise ukrainienne depuis 2014 et l'invasion russe de 2022 marquent un tournant géopolitique majeur, ravivant les tensions entre la Russie et l'Occident dans une nouvelle confrontation.",
+    theme: "tensions",
+    image: "/ukraine-flag.jpg",
+    programLink: "Thème 2 - Faire la guerre, faire la paix",
+    description:
+      "Le conflit en Ukraine est devenu un point de rupture géopolitique majeur du XXIe siècle. Tout commence avec la révolution de Maïdan en 2014, lorsque le président pro-russe Viktor Ianoukovitch est renversé. La Russie réagit en annexant la Crimée en mars 2014 et en soutenant des séparatistes dans l'est de l'Ukraine (Donbass). Le 24 février 2022, la Russie lance une invasion à grande échelle de l'Ukraine, déclenchant la plus grande guerre en Europe depuis 1945. Les causes sont multiples : volonté de Poutine d'empêcher l'Ukraine de rejoindre l'OTAN et l'UE, nostalgie de la grandeur russe, contestation de l'ordre mondial post-Guerre Froide. Le conflit a des répercussions mondiales : crise énergétique, crise alimentaire (Ukraine = grenier à blé), sanctions massives contre la Russie, réarmement européen, retour de la menace nucléaire. L'Occident soutient massivement l'Ukraine (armes, finances), tandis que la Russie s'isole diplomatiquement.",
+    keyFigures: [
+      "Volodymyr Zelensky - Président ukrainien depuis 2019, symbole de la résistance",
+      "Vladimir Poutine - Président russe, décision d'invasion de l'Ukraine",
+      "Joe Biden - Président américain, coordination du soutien occidental à l'Ukraine",
+      "Emmanuel Macron - Président français, tentatives de médiation avant l'invasion",
+      "Olaf Scholz - Chancelier allemand, tournant militaire de l'Allemagne",
+    ],
+    locations: [
+      "Kiev (Kyiv) - Capitale ukrainienne, cible de l'offensive russe en 2022",
+      "Crimée - Annexée par la Russie en 2014",
+      "Donbass - Régions de Donetsk et Louhansk, théâtre de combats depuis 2014",
+      "Marioupol - Ville stratégique, détruite lors du siège russe en 2022",
+      "Kharkiv - Deuxième ville d'Ukraine, bombardée intensément",
+    ],
+    impact:
+      "Le conflit en Ukraine marque un tournant géopolitique majeur. Il met fin à l'illusion d'une paix durable en Europe et ravive la confrontation entre la Russie et l'Occident. Les sanctions occidentales isolent économiquement la Russie, qui se rapproche de la Chine. L'Europe accélère son réarmement et son indépendance énergétique vis-à-vis de la Russie. L'OTAN se renforce avec l'adhésion de la Finlande et de la Suède. Le conflit provoque une crise alimentaire mondiale (l'Ukraine exporte 10% du blé mondial). La menace nucléaire réapparaît. L'ordre international post-1991 est remis en cause, avec un monde de plus en plus multipolaire et fragmenté.",
+    funFacts: [
+      "L'Ukraine est le plus grand pays entièrement en Europe avec 603 000 km²",
+      "Elle était le 3e producteur mondial de céréales avant la guerre",
+      "Plus de 8 millions d'Ukrainiens ont fui le pays depuis l'invasion de 2022",
+      "Les sanctions contre la Russie sont les plus importantes jamais imposées",
+      "L'UE et les États-Unis ont fourni plus de 100 milliards de dollars d'aide à l'Ukraine",
+      "Le conflit a provoqué la plus grande crise énergétique en Europe depuis les années 1970",
+    ],
+    bacProblematiques: [
+      "Le conflit en Ukraine : un tournant géopolitique majeur pour l'Europe et le monde ? (Sujet Bac 2023)",
+      "Dans quelle mesure l'invasion russe de l'Ukraine remet-elle en cause l'ordre international post-Guerre Froide ? (Sujet Bac 2022)",
+      "Les sanctions occidentales contre la Russie : efficacité et limites. (Sujet Bac 2023)",
+      "Comment le conflit ukrainien révèle-t-il les nouvelles lignes de fracture géopolitiques mondiales ?",
+      "L'Europe face à la guerre en Ukraine : vers une autonomie stratégique renforcée ?",
+    ],
+  },
+  {
+    id: 112,
+    title: "Le Terrorisme International",
+    subtitle: "Menace transnationale depuis le 11 septembre",
+    summary:
+      "Le terrorisme international, incarné par Al-Qaïda et l'État islamique, a profondément transformé les relations internationales et les politiques de sécurité depuis les attentats du 11 septembre 2001.",
+    theme: "tensions",
+    image: "/terrorism-memorial.jpg",
+    programLink: "Thème 2 - Faire la guerre, faire la paix",
+    description:
+      "Le terrorisme international est devenu une menace géopolitique majeure depuis les attentats du 11 septembre 2001. Ces attaques contre les États-Unis (près de 3 000 morts) ont marqué un tournant dans les relations internationales. Le terrorisme islamiste, incarné par Al-Qaïda puis l'État islamique (Daech), se caractérise par une idéologie radicale, une organisation transnationale en réseaux, et une stratégie de la terreur visant les populations civiles. Les causes sont multiples : conflits au Moyen-Orient, frustrations politiques et sociales, radicalisation religieuse, échec de l'intégration dans certains pays occidentaux. Les conséquences géopolitiques sont immenses : 'guerre contre le terrorisme' menée par les États-Unis (Afghanistan, Irak), renforcement des mesures de sécurité partout dans le monde, tensions intercommunautaires, remise en cause des libertés publiques. Bien que Daech ait été militairement vaincu en 2019, le terrorisme islamiste reste une menace persistante, évoluant vers des formes décentralisées.",
+    keyFigures: [
+      "Oussama ben Laden - Fondateur d'Al-Qaïda, commanditaire du 11 septembre 2001",
+      "George W. Bush - Président américain, lancement de la 'guerre contre le terrorisme'",
+      "Abou Bakr al-Baghdadi - Leader de l'État islamique, proclamation du califat en 2014",
+      "Barack Obama - Président américain, élimination de Ben Laden en 2011",
+      "François Hollande - Président français, attentats de Paris en 2015",
+    ],
+    locations: [
+      "New York - Attentats du 11 septembre 2001 contre le World Trade Center",
+      "Afghanistan - Base d'Al-Qaïda, guerre américaine depuis 2001",
+      "Irak et Syrie - Territoire du 'califat' de l'État islamique (2014-2019)",
+      "Paris - Attentats de 2015 (Charlie Hebdo, Bataclan)",
+      "Sahel, Afrique - Nouvelle zone d'expansion du terrorisme islamiste",
+    ],
+    impact:
+      "Le terrorisme international a profondément transformé les relations internationales et les sociétés. La 'guerre contre le terrorisme' a justifié les interventions américaines en Afghanistan et en Irak, déstabilisant durablement le Moyen-Orient. Les mesures de sécurité se sont renforcées partout (surveillance, contrôles aux frontières), soulevant des débats sur l'équilibre entre sécurité et libertés. Le terrorisme a alimenté l'islamophobie et les tensions intercommunautaires dans les pays occidentaux. Il a favorisé la montée des populismes et des discours sécuritaires. Bien que Daech ait été vaincu militairement, le terrorisme reste une menace évolutive (attaques isolées, propagande en ligne). La lutte antiterroriste nécessite une coopération internationale renforcée.",
+    funFacts: [
+      "Les attentats du 11 septembre 2001 ont fait 2 977 victimes",
+      "La guerre en Afghanistan déclenchée en réponse a duré 20 ans (2001-2021)",
+      "L'État islamique a contrôlé un territoire grand comme la Belgique à son apogée (2014-2015)",
+      "Plus de 40 000 combattants étrangers ont rejoint Daech depuis 2014",
+      "Les attentats de Paris du 13 novembre 2015 ont fait 130 morts",
+      "Le terrorisme islamiste a causé des milliers de morts dans le monde depuis 2001",
+    ],
+    bacProblematiques: [
+      "Le terrorisme international : une menace durable pour les relations internationales depuis le 11 septembre 2001 ? (Sujet Bac 2021)",
+      "La 'guerre contre le terrorisme' : bilan et conséquences géopolitiques. (Sujet Bac 2020)",
+      "L'État islamique : émergence, apogée et défaite d'un projet terroriste transnational. (Sujet Bac 2019)",
+      "Dans quelle mesure le terrorisme remet-il en cause l'équilibre entre sécurité et libertés dans les démocraties ? (Sujet Bac 2022)",
+      "Comment lutter efficacement contre le terrorisme sans alimenter les tensions et les radicalisations ?",
+    ],
+  },
+  {
+    id: 113,
+    title: "Les Ressources en Eau",
+    subtitle: "Or bleu du XXIe siècle",
+    summary:
+      "L'eau douce devient une ressource stratégique rare, source de tensions géopolitiques croissantes entre États, particulièrement dans les régions arides du Moyen-Orient, d'Asie et d'Afrique.",
+    theme: "environnement",
+    image: "/water-resources-dam.jpg",
+    programLink: "Thème 1 - L'environnement, entre exploitation et protection",
+    description:
+      "L'eau douce est devenue l'or bleu du XXIe siècle, une ressource stratégique de plus en plus rare et convoitée. Alors que l'eau recouvre 71% de la surface terrestre, l'eau douce accessible ne représente que 0,7% du total. La croissance démographique, l'urbanisation, l'agriculture intensive et l'industrie augmentent la demande, tandis que le changement climatique réduit la disponibilité dans de nombreuses régions. Près de 2 milliards de personnes vivent dans des zones en stress hydrique. L'eau devient une source de tensions géopolitiques : conflits autour des fleuves transfrontaliers (Nil, Tigre et Euphrate, Mékong, Jourdain), barrages controversés, accaparement des ressources. Certains experts évoquent le risque de 'guerres de l'eau' au XXIe siècle. L'accès à l'eau potable est reconnu comme un droit humain fondamental par l'ONU, mais reste inégalement assuré. La gestion durable et équitable de l'eau est un enjeu majeur de coopération internationale.",
+    keyFigures: [
+      "Vandana Shiva - Militante indienne pour la justice de l'eau",
+      "Abdel Fattah al-Sissi - Président égyptien, tensions sur le Nil",
+      "Recep Tayyip Erdoğan - Président turc, contrôle des fleuves Tigre et Euphrate",
+      "Xi Jinping - Président chinois, barrages sur le Mékong",
+      "Ban Ki-moon - Ex-secrétaire général de l'ONU, alerte sur l'eau",
+    ],
+    locations: [
+      "Bassin du Nil - Tensions entre Égypte, Soudan et Éthiopie (barrage Renaissance)",
+      "Tigre et Euphrate - Irak, Syrie et Turquie se partagent ces fleuves vitaux",
+      "Fleuve Mékong - Chine, Laos, Thaïlande, Vietnam partagent cette ressource",
+      "Fleuve Jourdain - Israël, Jordanie, Territoires palestiniens, source de tensions",
+      "Mer d'Aral - Catastrophe écologique, assèchement presque total",
+    ],
+    impact:
+      "Les ressources en eau deviennent un enjeu géopolitique majeur du XXIe siècle. Les tensions autour des fleuves transfrontaliers s'intensifient, particulièrement au Moyen-Orient et en Afrique. Le barrage de la Renaissance en Éthiopie sur le Nil crée un conflit avec l'Égypte. La Turquie contrôle les sources du Tigre et de l'Euphrate, donnant un avantage sur la Syrie et l'Irak. En Asie, les barrages chinois sur le Mékong affectent les pays en aval. Le stress hydrique pourrait provoquer des migrations massives et des conflits. La coopération internationale sur l'eau reste difficile, chaque État privilégiant ses intérêts nationaux. L'innovation technologique (dessalement, recyclage) et une gestion durable sont essentielles pour prévenir les crises.",
+    funFacts: [
+      "2 milliards de personnes n'ont pas accès à de l'eau potable sûre",
+      "L'agriculture consomme 70% de l'eau douce mondiale",
+      "Le barrage de la Renaissance éthiopien est le plus grand d'Afrique",
+      "La mer d'Aral a perdu 90% de sa surface depuis 1960, catastrophe écologique majeure",
+      "15 pays se partagent les eaux du Nil, source de tensions croissantes",
+      "Le stress hydrique pourrait déplacer 700 millions de personnes d'ici 2030",
+    ],
+    bacProblematiques: [
+      "L'eau : une ressource géopolitique stratégique au XXIe siècle ? (Sujet Bac 2021)",
+      "Les tensions autour du Nil : révélatrices des enjeux géopolitiques de l'eau. (Sujet Bac 2020)",
+      "Dans quelle mesure le contrôle des ressources en eau confère-t-il un pouvoir géopolitique ? (Sujet Bac 2019)",
+      "Les 'guerres de l'eau' : mythe ou réalité du XXIe siècle ? (Sujet Bac 2022)",
+      "Comment assurer une gestion équitable et durable de l'eau entre États partageant des fleuves transfrontaliers ?",
+    ],
+  },
+  {
+    id: 114,
+    title: "La Biodiversité",
+    subtitle: "Enjeu environnemental et géopolitique",
+    summary:
+      "La sixième extinction de masse menace la biodiversité mondiale. Sa préservation devient un enjeu géopolitique majeur, opposant développement économique et protection environnementale.",
+    theme: "environnement",
+    image: "/biodiversity-rainforest.jpg",
+    programLink: "Thème 1 - L'environnement, entre exploitation et protection",
+    description:
+      "La biodiversité, c'est-à-dire la variété des formes de vie sur Terre (espèces, écosystèmes, gènes), est en déclin rapide. Les scientifiques parlent de sixième extinction de masse, causée cette fois par les activités humaines : déforestation, urbanisation, agriculture intensive, pollution, changement climatique, surexploitation des ressources. Un million d'espèces sont menacées d'extinction selon l'ONU. La perte de biodiversité a des conséquences graves : déséquilibres écologiques, perte de services écosystémiques (pollinisation, régulation du climat, ressources alimentaires et médicales). La préservation de la biodiversité devient un enjeu géopolitique : les pays du Sud, riches en biodiversité (Amazonie, bassin du Congo, Indonésie), sont confrontés aux pressions économiques pour exploiter leurs ressources. Les pays du Nord, historiquement responsables de la dégradation, exigent la protection tout en ayant déjà détruit leurs écosystèmes. Les négociations internationales (COP15 biodiversité en 2022) tentent de concilier développement et conservation.",
+    keyFigures: [
+      "Greta Thunberg - Militante climat, sensibilisation à la biodiversité",
+      "Jane Goodall - Primatologue, défenseuse des grands singes",
+      "Wangari Maathai - Militante kényane, prix Nobel de la paix 2004 pour l'environnement",
+      "Jair Bolsonaro - Ex-président brésilien, déforestation accélérée de l'Amazonie",
+      "Emmanuel Macron - Président français, engagement pour la biodiversité",
+    ],
+    locations: [
+      "Amazonie, Brésil - Plus grande forêt tropicale, 'poumon de la Terre'",
+      "Bassin du Congo - Deuxième forêt tropicale mondiale, riche biodiversité",
+      "Indonésie - Biodiversité exceptionnelle, déforestation massive pour l'huile de palme",
+      "Madagascar - Biodiversité unique, 90% des espèces endémiques",
+      "Grande barrière de corail, Australie - Plus grand récif corallien, menacé",
+    ],
+    impact:
+      "La perte de biodiversité a des conséquences géopolitiques majeures. Les pays riches en biodiversité (Brésil, Indonésie, RD Congo) sont pris entre développement économique et pressions internationales pour la conservation. La déforestation de l'Amazonie par le Brésil crée des tensions diplomatiques, certains évoquant une 'internationalisation' de la forêt. La biopiraterie (appropriation de ressources génétiques sans compensation) oppose pays du Sud et multinationales. Les aires protégées transfrontalières nécessitent une coopération régionale. La perte de biodiversité menace la sécurité alimentaire mondiale et pourrait déclencher de nouvelles pandémies (zoonoses). La COP15 biodiversité (2022) a fixé l'objectif de protéger 30% des terres et des mers d'ici 2030.",
+    funFacts: [
+      "1 million d'espèces sont menacées d'extinction sur les 8 millions estimées",
+      "75% des écosystèmes terrestres ont été significativement altérés par l'homme",
+      "L'Amazonie a perdu 17% de sa surface forestière en 50 ans",
+      "Les insectes pollinisateurs assurent la reproduction de 75% des cultures alimentaires",
+      "60% des populations d'animaux sauvages ont disparu depuis 1970",
+      "L'océan absorbe 30% du CO2, mais l'acidification menace les écosystèmes marins",
+    ],
+    bacProblematiques: [
+      "La biodiversité : un enjeu géopolitique du XXIe siècle ? (Sujet Bac 2021)",
+      "Amazonie : entre souveraineté nationale brésilienne et bien commun de l'humanité. (Sujet Bac 2020)",
+      "Dans quelle mesure la perte de biodiversité menace-t-elle la sécurité et le développement humain ? (Sujet Bac 2019)",
+      "Comment concilier développement économique et préservation de la biodiversité dans les pays du Sud ? (Sujet Bac 2022)",
+      "La protection de la biodiversité nécessite-t-elle une gouvernance mondiale renforcée ?",
+    ],
+  },
 ]
 
 const quizzes: Quiz[] = [
@@ -584,6 +928,377 @@ const quizzes: Quiz[] = [
         correctAnswer: 2,
         explanation:
           "Le niveau des mers pourrait augmenter de 1 mètre d'ici 2100, menaçant des centaines de millions de personnes vivant dans les zones côtières.",
+      },
+    ],
+  },
+  {
+    cardId: 107,
+    questions: [
+      {
+        question: "Combien de satellites actifs orbitent actuellement autour de la Terre ?",
+        options: ["1 000", "Plus de 5 000", "10 000", "20 000"],
+        correctAnswer: 1,
+        explanation:
+          "Plus de 5 000 satellites actifs orbitent actuellement autour de la Terre, servant aux communications, à la surveillance, au GPS et à la recherche scientifique.",
+      },
+      {
+        question: "Quelle entreprise a révolutionné l'industrie spatiale avec des fusées réutilisables ?",
+        options: ["Blue Origin", "SpaceX", "Virgin Galactic", "Boeing"],
+        correctAnswer: 1,
+        explanation:
+          "SpaceX d'Elon Musk a révolutionné l'industrie spatiale en développant des fusées réutilisables, divisant les coûts de lancement par 10.",
+      },
+      {
+        question: "En quelle année les États-Unis ont-ils créé leur Force spatiale (Space Force) ?",
+        options: ["2015", "2017", "2019", "2021"],
+        correctAnswer: 2,
+        explanation:
+          "Les États-Unis ont créé la Space Force en 2019, faisant de l'espace la sixième branche de leur armée.",
+      },
+      {
+        question: "Quel pays a construit sa propre station spatiale Tiangong ?",
+        options: ["Russie", "Inde", "Chine", "Japon"],
+        correctAnswer: 2,
+        explanation: "La Chine a construit sa propre station spatiale Tiangong, opérationnelle depuis 2021.",
+      },
+      {
+        question: "Combien de débris spatiaux de plus de 10 cm menacent actuellement les satellites ?",
+        options: ["5 000", "10 000", "Plus de 30 000", "50 000"],
+        correctAnswer: 2,
+        explanation:
+          "Plus de 30 000 débris spatiaux de plus de 10 cm sont suivis et menacent les satellites et missions spatiales.",
+      },
+      {
+        question: "Quel type d'exploitation pourrait générer des milliers de milliards de dollars dans l'espace ?",
+        options: ["Tourisme spatial", "Exploitation minière des astéroïdes", "Fermes solaires", "Bases lunaires"],
+        correctAnswer: 1,
+        explanation:
+          "L'exploitation minière des astéroïdes pourrait générer des milliers de milliards de dollars grâce aux métaux rares et ressources présents.",
+      },
+    ],
+  },
+  {
+    cardId: 108,
+    questions: [
+      {
+        question: "Quel pourcentage du commerce mondial transite par voie maritime ?",
+        options: ["50%", "70%", "90%", "95%"],
+        correctAnswer: 2,
+        explanation:
+          "90% du commerce mondial transite par voie maritime, faisant des océans un espace stratégique vital.",
+      },
+      {
+        question: "Quel rang la France occupe-t-elle parmi les domaines maritimes mondiaux ?",
+        options: ["1er", "2e", "3e", "5e"],
+        correctAnswer: 1,
+        explanation:
+          "La France possède le 2e domaine maritime mondial avec 11 millions de km² de Zone économique exclusive (ZEE).",
+      },
+      {
+        question: "Quel pourcentage du pétrole mondial transite par le détroit d'Ormuz chaque jour ?",
+        options: ["10%", "15%", "20%", "30%"],
+        correctAnswer: 2,
+        explanation:
+          "20% du pétrole mondial transite chaque jour par le détroit d'Ormuz, faisant de ce passage un point stratégique crucial.",
+      },
+      {
+        question: "Quelle zone maritime concentre 30% du commerce maritime mondial ?",
+        options: ["Golfe Persique", "Mer de Chine méridionale", "Mer Méditerranée", "Océan Atlantique"],
+        correctAnswer: 1,
+        explanation:
+          "La mer de Chine méridionale concentre 30% du commerce maritime mondial, d'où les tensions territoriales intenses dans cette zone.",
+      },
+      {
+        question: "Quel pourcentage du CO2 émis par l'humanité est absorbé par les océans ?",
+        options: ["10%", "25%", "40%", "50%"],
+        correctAnswer: 1,
+        explanation:
+          "Les océans absorbent 25% du CO2 émis par l'humanité, mais cette absorption provoque leur acidification dangereuse.",
+      },
+      {
+        question: "Combien de navires de commerce sillonnent les océans en permanence ?",
+        options: ["10 000", "30 000", "Plus de 50 000", "100 000"],
+        correctAnswer: 2,
+        explanation:
+          "Plus de 50 000 navires de commerce sillonnent les océans en permanence, transportant marchandises et ressources.",
+      },
+    ],
+  },
+  {
+    cardId: 109,
+    questions: [
+      {
+        question: "Quelle est la superficie de la Russie ?",
+        options: ["10 millions de km²", "14 millions de km²", "17 millions de km²", "20 millions de km²"],
+        correctAnswer: 2,
+        explanation: "La Russie est le plus grand pays du monde avec 17 millions de km².",
+      },
+      {
+        question: "En quelle année Vladimir Poutine est-il arrivé au pouvoir ?",
+        options: ["1991", "1999", "2000", "2004"],
+        correctAnswer: 2,
+        explanation: "Vladimir Poutine est arrivé au pouvoir en 2000 et tente depuis de restaurer la puissance russe.",
+      },
+      {
+        question: "Quel rang occupe l'arsenal nucléaire russe dans le monde ?",
+        options: ["1er", "2e", "3e", "4e"],
+        correctAnswer: 1,
+        explanation:
+          "La Russie possède le deuxième arsenal nucléaire mondial avec environ 6 000 têtes nucléaires, après les États-Unis.",
+      },
+      {
+        question: "En quelle année la Russie a-t-elle annexé la Crimée ?",
+        options: ["2008", "2012", "2014", "2022"],
+        correctAnswer: 2,
+        explanation:
+          "La Russie a annexé la Crimée en 2014, déclenchant des sanctions occidentales et une crise diplomatique majeure.",
+      },
+      {
+        question: "À quel pays le PIB russe est-il comparable malgré sa taille ?",
+        options: ["Italie", "Espagne", "Canada", "Australie"],
+        correctAnswer: 1,
+        explanation:
+          "Le PIB russe est comparable à celui de l'Espagne malgré sa taille immense, révélant les faiblesses structurelles de son économie.",
+      },
+      {
+        question: "Quelle est l'évolution de la population russe depuis 1991 ?",
+        options: ["Forte croissance", "Stagnation", "Déclin", "Doublement"],
+        correctAnswer: 2,
+        explanation:
+          "La population russe est en déclin (146 millions en 2023 contre 148 millions en 1991), posant un défi démographique majeur.",
+      },
+    ],
+  },
+  {
+    cardId: 110,
+    questions: [
+      {
+        question: "Combien d'habitants compte l'Inde en 2023 ?",
+        options: ["1 milliard", "1,2 milliard", "1,4 milliard", "1,6 milliard"],
+        correctAnswer: 2,
+        explanation:
+          "L'Inde compte 1,4 milliard d'habitants en 2023, devenant le pays le plus peuplé du monde, dépassant la Chine.",
+      },
+      {
+        question: "Quel rang économique mondial occupe l'Inde ?",
+        options: ["3e", "5e", "7e", "10e"],
+        correctAnswer: 1,
+        explanation:
+          "L'Inde est la cinquième économie mondiale et pourrait devenir la troisième d'ici 2030 grâce à sa croissance forte.",
+      },
+      {
+        question: "Qui est le Premier ministre indien depuis 2014 ?",
+        options: ["Manmohan Singh", "Rahul Gandhi", "Narendra Modi", "Amit Shah"],
+        correctAnswer: 2,
+        explanation:
+          "Narendra Modi est Premier ministre indien depuis 2014, menant une politique de nationalisme hindou et de modernisation.",
+      },
+      {
+        question: "Quel pourcentage de la population indienne a moins de 25 ans ?",
+        options: ["30%", "40%", "Plus de 50%", "60%"],
+        correctAnswer: 2,
+        explanation:
+          "Plus de 50% de la population indienne a moins de 25 ans, constituant un atout démographique majeur pour l'avenir.",
+      },
+      {
+        question: "Quelle ville indienne est surnommée la 'Silicon Valley indienne' ?",
+        options: ["Mumbai", "New Delhi", "Bangalore", "Hyderabad"],
+        correctAnswer: 2,
+        explanation:
+          "Bangalore est surnommée la 'Silicon Valley indienne', étant le principal hub technologique du pays.",
+      },
+      {
+        question: "Depuis quelle année l'Inde possède-t-elle l'arme nucléaire ?",
+        options: ["1964", "1974", "1988", "1998"],
+        correctAnswer: 1,
+        explanation: "L'Inde possède l'arme nucléaire depuis 1974, affirmant son statut de puissance régionale.",
+      },
+    ],
+  },
+  {
+    cardId: 111,
+    questions: [
+      {
+        question: "En quelle année la Russie a-t-elle annexé la Crimée ?",
+        options: ["2008", "2012", "2014", "2016"],
+        correctAnswer: 2,
+        explanation:
+          "La Russie a annexé la Crimée en mars 2014 après la révolution de Maïdan en Ukraine, déclenchant une crise internationale.",
+      },
+      {
+        question: "À quelle date la Russie a-t-elle lancé son invasion à grande échelle de l'Ukraine ?",
+        options: ["24 janvier 2022", "24 février 2022", "24 mars 2022", "24 avril 2022"],
+        correctAnswer: 1,
+        explanation:
+          "La Russie a lancé son invasion à grande échelle de l'Ukraine le 24 février 2022, déclenchant la plus grande guerre en Europe depuis 1945.",
+      },
+      {
+        question: "Quel président ukrainien est devenu le symbole de la résistance ?",
+        options: ["Viktor Ianoukovitch", "Petro Porochenko", "Volodymyr Zelensky", "Yulia Tymoshenko"],
+        correctAnswer: 2,
+        explanation:
+          "Volodymyr Zelensky, ancien comédien devenu président en 2019, est devenu le symbole de la résistance ukrainienne.",
+      },
+      {
+        question: "Combien d'Ukrainiens ont fui le pays depuis l'invasion de 2022 ?",
+        options: ["2 millions", "5 millions", "Plus de 8 millions", "12 millions"],
+        correctAnswer: 2,
+        explanation:
+          "Plus de 8 millions d'Ukrainiens ont fui le pays depuis l'invasion de 2022, créant la plus grande crise de réfugiés en Europe depuis 1945.",
+      },
+      {
+        question: "Quel pourcentage des céréales mondiales l'Ukraine produisait-elle avant la guerre ?",
+        options: ["5%", "10%", "15%", "20%"],
+        correctAnswer: 1,
+        explanation:
+          "L'Ukraine était le 3e producteur mondial de céréales et exportait 10% du blé mondial, d'où la crise alimentaire mondiale déclenchée par la guerre.",
+      },
+      {
+        question: "Quels pays ont rejoint l'OTAN en réponse au conflit ukrainien ?",
+        options: ["Pologne et République tchèque", "Finlande et Suède", "Autriche et Suisse", "Moldavie et Géorgie"],
+        correctAnswer: 1,
+        explanation:
+          "La Finlande et la Suède ont rejoint l'OTAN en réponse à la menace russe, renforçant considérablement l'alliance.",
+      },
+    ],
+  },
+  {
+    cardId: 112,
+    questions: [
+      {
+        question: "Combien de victimes ont fait les attentats du 11 septembre 2001 ?",
+        options: ["1 500", "2 977", "5 000", "10 000"],
+        correctAnswer: 1,
+        explanation:
+          "Les attentats du 11 septembre 2001 ont fait 2 977 victimes, marquant un tournant dans les relations internationales.",
+      },
+      {
+        question: "Qui était le fondateur d'Al-Qaïda et commanditaire du 11 septembre ?",
+        options: ["Abou Bakr al-Baghdadi", "Ayman al-Zawahiri", "Oussama ben Laden", "Mollah Omar"],
+        correctAnswer: 2,
+        explanation:
+          "Oussama ben Laden était le fondateur d'Al-Qaïda et le commanditaire des attentats du 11 septembre 2001.",
+      },
+      {
+        question: "Combien de temps a duré la guerre en Afghanistan déclenchée après le 11 septembre ?",
+        options: ["10 ans", "15 ans", "20 ans", "25 ans"],
+        correctAnswer: 2,
+        explanation:
+          "La guerre en Afghanistan déclenchée en réponse au 11 septembre a duré 20 ans (2001-2021), la plus longue guerre américaine.",
+      },
+      {
+        question: "En quelle année l'État islamique a-t-il proclamé son 'califat' ?",
+        options: ["2011", "2013", "2014", "2016"],
+        correctAnswer: 2,
+        explanation:
+          "L'État islamique a proclamé son 'califat' en 2014, contrôlant un territoire grand comme la Belgique en Irak et en Syrie.",
+      },
+      {
+        question: "Combien de personnes sont mortes dans les attentats de Paris du 13 novembre 2015 ?",
+        options: ["86", "100", "130", "150"],
+        correctAnswer: 2,
+        explanation:
+          "Les attentats de Paris du 13 novembre 2015 (Bataclan, terrasses) ont fait 130 morts, les plus meurtriers en France.",
+      },
+      {
+        question: "Combien de combattants étrangers ont rejoint Daech depuis 2014 ?",
+        options: ["10 000", "20 000", "Plus de 40 000", "100 000"],
+        correctAnswer: 2,
+        explanation:
+          "Plus de 40 000 combattants étrangers venus du monde entier ont rejoint Daech depuis 2014, témoignant de l'ampleur du phénomène.",
+      },
+    ],
+  },
+  {
+    cardId: 113,
+    questions: [
+      {
+        question: "Combien de personnes n'ont pas accès à de l'eau potable sûre dans le monde ?",
+        options: ["500 millions", "1 milliard", "2 milliards", "3 milliards"],
+        correctAnswer: 2,
+        explanation:
+          "2 milliards de personnes n'ont pas accès à de l'eau potable sûre, soit un quart de la population mondiale.",
+      },
+      {
+        question: "Quel pourcentage de l'eau douce mondiale est consommé par l'agriculture ?",
+        options: ["40%", "55%", "70%", "85%"],
+        correctAnswer: 2,
+        explanation: "L'agriculture consomme 70% de l'eau douce mondiale, principalement pour l'irrigation.",
+      },
+      {
+        question: "Combien de pays se partagent les eaux du Nil ?",
+        options: ["7", "11", "15", "20"],
+        correctAnswer: 2,
+        explanation:
+          "15 pays se partagent les eaux du Nil, source de tensions croissantes surtout avec le barrage éthiopien.",
+      },
+      {
+        question: "Quel barrage africain est au cœur des tensions sur le Nil ?",
+        options: ["Barrage d'Assouan", "Barrage de la Renaissance", "Barrage de Kariba", "Barrage d'Akosombo"],
+        correctAnswer: 1,
+        explanation:
+          "Le barrage de la Renaissance en Éthiopie, le plus grand d'Afrique, crée un conflit majeur avec l'Égypte sur les eaux du Nil.",
+      },
+      {
+        question: "Quel pourcentage de sa surface la mer d'Aral a-t-elle perdu depuis 1960 ?",
+        options: ["50%", "70%", "90%", "95%"],
+        correctAnswer: 2,
+        explanation:
+          "La mer d'Aral a perdu 90% de sa surface depuis 1960, l'une des plus grandes catastrophes écologiques causées par l'homme.",
+      },
+      {
+        question: "Combien de personnes le stress hydrique pourrait-il déplacer d'ici 2030 ?",
+        options: ["100 millions", "300 millions", "700 millions", "1 milliard"],
+        correctAnswer: 2,
+        explanation:
+          "Le stress hydrique pourrait déplacer 700 millions de personnes d'ici 2030, créant une crise migratoire massive.",
+      },
+    ],
+  },
+  {
+    cardId: 114,
+    questions: [
+      {
+        question: "Combien d'espèces sont menacées d'extinction selon l'ONU ?",
+        options: ["100 000", "500 000", "1 million", "2 millions"],
+        correctAnswer: 2,
+        explanation:
+          "1 million d'espèces sont menacées d'extinction sur les 8 millions estimées, selon le rapport de l'ONU.",
+      },
+      {
+        question: "Quel pourcentage des écosystèmes terrestres ont été significativement altérés par l'homme ?",
+        options: ["40%", "55%", "75%", "90%"],
+        correctAnswer: 2,
+        explanation:
+          "75% des écosystèmes terrestres ont été significativement altérés par l'homme à travers l'urbanisation, l'agriculture et la déforestation.",
+      },
+      {
+        question: "Quel pourcentage de sa surface forestière l'Amazonie a-t-elle perdu en 50 ans ?",
+        options: ["8%", "12%", "17%", "25%"],
+        correctAnswer: 2,
+        explanation:
+          "L'Amazonie a perdu 17% de sa surface forestière en 50 ans, principalement à cause de la déforestation pour l'agriculture et l'élevage.",
+      },
+      {
+        question: "Quel pourcentage des cultures alimentaires dépendent de la pollinisation par les insectes ?",
+        options: ["30%", "50%", "75%", "90%"],
+        correctAnswer: 2,
+        explanation:
+          "75% des cultures alimentaires dépendent de la pollinisation par les insectes, dont le déclin menace la sécurité alimentaire.",
+      },
+      {
+        question: "De combien les populations d'animaux sauvages ont-elles diminué depuis 1970 ?",
+        options: ["30%", "45%", "60%", "80%"],
+        correctAnswer: 2,
+        explanation:
+          "60% des populations d'animaux sauvages ont disparu depuis 1970, témoignant de l'ampleur de la sixième extinction de masse.",
+      },
+      {
+        question: "Quel est l'objectif de la COP15 biodiversité de 2022 pour les aires protégées d'ici 2030 ?",
+        options: ["10%", "20%", "30%", "50%"],
+        correctAnswer: 2,
+        explanation:
+          "La COP15 biodiversité de 2022 a fixé l'objectif de protéger 30% des terres et des mers d'ici 2030 pour préserver la biodiversité.",
       },
     ],
   },

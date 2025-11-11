@@ -165,6 +165,86 @@ const hggspFlashcards: HGGSPFlashcard[] = [
     image: "/climate-change-earth.jpg",
     programLink: "Thème 1 - L'environnement, entre exploitation et protection",
   },
+  {
+    id: 107,
+    title: "La Course à l'Espace",
+    subtitle: "Nouvelle frontière géopolitique",
+    summary:
+      "L'espace devient un enjeu stratégique majeur du XXIe siècle, avec la militarisation croissante, l'exploitation des ressources et la compétition entre puissances spatiales.",
+    theme: "geopolitique",
+    image: "/space-race-satellites.jpg",
+    programLink: "Thème 1 - De nouveaux espaces de conquête",
+  },
+  {
+    id: 108,
+    title: "Les Océans",
+    subtitle: "Espace géopolitique stratégique",
+    summary:
+      "Les océans représentent 70% de la surface terrestre et concentrent des enjeux majeurs : routes commerciales, ressources naturelles, zones économiques exclusives et tensions territoriales.",
+    theme: "geopolitique",
+    image: "/ocean-cargo-ships.jpg",
+    programLink: "Thème 1 - De nouveaux espaces de conquête",
+  },
+  {
+    id: 109,
+    title: "La Russie",
+    subtitle: "Puissance régionale en quête de renouveau",
+    summary:
+      "Héritière de l'URSS, la Russie de Poutine tente de retrouver son statut de grande puissance à travers une politique assertive, son arsenal nucléaire et ses ressources énergétiques.",
+    theme: "puissances",
+    image: "/russia-kremlin.jpg",
+    programLink: "Thème 1 - De nouveaux espaces de conquête",
+  },
+  {
+    id: 110,
+    title: "L'Inde",
+    subtitle: "Géant démographique et puissance émergente",
+    summary:
+      "Avec 1,4 milliard d'habitants et une croissance économique forte, l'Inde s'affirme comme une puissance régionale majeure en Asie et un acteur incontournable de la mondialisation.",
+    theme: "puissances",
+    image: "/india-taj-mahal.jpg",
+    programLink: "Thème 1 - De nouveaux espaces de conquête",
+  },
+  {
+    id: 111,
+    title: "Le Conflit en Ukraine",
+    subtitle: "Point de rupture géopolitique depuis 2014",
+    summary:
+      "La crise ukrainienne depuis 2014 et l'invasion russe de 2022 marquent un tournant géopolitique majeur, ravivant les tensions entre la Russie et l'Occident dans une nouvelle confrontation.",
+    theme: "tensions",
+    image: "/ukraine-flag.jpg",
+    programLink: "Thème 2 - Faire la guerre, faire la paix",
+  },
+  {
+    id: 112,
+    title: "Le Terrorisme International",
+    subtitle: "Menace transnationale depuis le 11 septembre",
+    summary:
+      "Le terrorisme international, incarné par Al-Qaïda et l'État islamique, a profondément transformé les relations internationales et les politiques de sécurité depuis les attentats du 11 septembre 2001.",
+    theme: "tensions",
+    image: "/terrorism-memorial.jpg",
+    programLink: "Thème 2 - Faire la guerre, faire la paix",
+  },
+  {
+    id: 113,
+    title: "Les Ressources en Eau",
+    subtitle: "Or bleu du XXIe siècle",
+    summary:
+      "L'eau douce devient une ressource stratégique rare, source de tensions géopolitiques croissantes entre États, particulièrement dans les régions arides du Moyen-Orient, d'Asie et d'Afrique.",
+    theme: "environnement",
+    image: "/water-resources-dam.jpg",
+    programLink: "Thème 1 - L'environnement, entre exploitation et protection",
+  },
+  {
+    id: 114,
+    title: "La Biodiversité",
+    subtitle: "Enjeu environnemental et géopolitique",
+    summary:
+      "La sixième extinction de masse menace la biodiversité mondiale. Sa préservation devient un enjeu géopolitique majeur, opposant développement économique et protection environnementale.",
+    theme: "environnement",
+    image: "/biodiversity-rainforest.jpg",
+    programLink: "Thème 1 - L'environnement, entre exploitation et protection",
+  },
 ]
 
 function getThemeColor(theme: Theme) {
