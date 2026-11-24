@@ -1,929 +1,298 @@
-"use client"
-
-import { useState, useEffect } from "react"
-import { useSearchParams } from "next/navigation"
-import { Button } from "@/components/ui/button"
-import { Card } from "@/components/ui/card"
-import { BookOpen, Trophy, Clock, ChevronRight, Check, Globe } from "lucide-react"
+import type { Metadata } from "next"
 import Link from "next/link"
+import { ArrowRight, Bot, Brain, Check, GraduationCap, Layers, ListChecks, PenLine, ScrollText } from "lucide-react"
+import { ChapterCard } from "@/components/chapter-card"
+import { Faq, type FaqItem } from "@/components/faq"
+import { Badge } from "@/components/ui/badge"
+import { Button } from "@/components/ui/button"
+import { hasChapterContent } from "@/content"
+import { allChapters, levels, programmes } from "@/lib/curriculum"
+import { pageMetadata } from "@/lib/seo"
+import { freeFeatures, premiumFeatures, pricing, siteConfig } from "@/lib/site"
 
-type Theme = "empires" | "wars" | "societies"
-type HGGSPTheme = "geopolitique" | "puissances" | "tensions" | "environnement"
+export const metadata: Metadata = pageMetadata({
+  title: `${siteConfig.name} — Fiches de révision histoire-géo et HGGSP pour le bac`,
+  absoluteTitle: true,
+  description: siteConfig.description,
+  path: "/",
+})
 
-interface Flashcard {
-  id: number
-  title: string
-  period: string
-  summary: string
-  theme: Theme
-  image: string
-}
-
-interface HGGSPFlashcard {
-  id: number
-  title: string
-  subtitle: string
-  summary: string
-  theme: HGGSPTheme
-  image: string
-  programLink: string
-}
-
-const flashcards: Flashcard[] = [
+const faq: FaqItem[] = [
   {
-    id: 1,
-    title: "L'Empire Romain",
-    period: "27 av. J.-C. - 476 apr. J.-C.",
-    summary:
-      "L'un des plus grands empires de l'histoire, s'étendant sur trois continents et influençant profondément la civilisation occidentale.",
-    theme: "empires",
-    image: "/roman-empire-colosseum.jpg",
+    q: "Les fiches sont-elles conformes aux programmes officiels ?",
+    a: "Oui. Chaque fiche suit l'intitulé exact d'un chapitre (ou d'un axe en HGGSP) des programmes du lycée général, de la Seconde à la Terminale. On y retrouve les notions, les repères et les acteurs attendus.",
   },
   {
-    id: 2,
-    title: "La Révolution Française",
-    period: "1789 - 1799",
-    summary:
-      "Période de bouleversements sociaux et politiques qui a transformé la France et inspiré des mouvements démocratiques dans le monde entier.",
-    theme: "wars",
-    image: "/storming-of-the-bastille.png",
+    q: "Qu'est-ce qui est gratuit ?",
+    a: `Toutes les fiches de cours, les flashcards de chaque chapitre, un quiz express de ${pricing.freeQuizQuestions} questions par chapitre, les fiches méthode essentielles et ${pricing.freeAiQuestionsPerDay} questions par jour à l'assistant IA avec un compte gratuit.`,
   },
   {
-    id: 3,
-    title: "La Renaissance",
-    period: "XIVe - XVIIe siècle",
-    summary:
-      "Mouvement culturel et artistique qui a marqué la transition entre le Moyen Âge et l'époque moderne, célébrant l'humanisme et les arts.",
-    theme: "societies",
-    image: "/renaissance-art-florence.jpg",
+    q: "Que m'apporte Premium ?",
+    a: "La révision en répétition espacée de toutes les flashcards, les quiz complets avec corrections détaillées, l'assistant IA sans limite quotidienne, des sujets corrigés en méthodologie et un tableau de bord de progression.",
   },
   {
-    id: 4,
-    title: "L'Empire Ottoman",
-    period: "1299 - 1922",
-    summary:
-      "Empire puissant qui a dominé l'Europe du Sud-Est, l'Asie occidentale et l'Afrique du Nord pendant plus de six siècles.",
-    theme: "empires",
-    image: "/ottoman-empire-istanbul.jpg",
+    q: "Combien coûte Premium ?",
+    a: `${pricing.monthly.label} par mois ou ${pricing.yearly.label} par an (soit ${pricing.yearly.monthlyEquivalent} par mois), avec ${pricing.trialDays} jours d'essai gratuit. L'abonnement se résilie en deux clics depuis ton espace. Les élèves boursiers peuvent demander une réduction.`,
   },
   {
-    id: 5,
-    title: "Napoléon Bonaparte",
-    period: "1769 - 1821",
-    summary:
-      "Général et empereur français qui a dominé l'Europe au début du XIXe siècle, réformant profondément la France et son système juridique.",
-    theme: "wars",
-    image: "/napoleon-bonaparte.jpg",
+    q: "La répétition espacée, comment ça marche ?",
+    a: "Après chaque carte, tu indiques si tu l'as retenue facilement ou non. L'algorithme programme alors la prochaine révision juste avant que tu risques de l'oublier : quelques minutes, quelques jours, puis quelques semaines. Tu révises moins longtemps et tu retiens mieux.",
   },
   {
-    id: 6,
-    title: "Cléopâtre VII",
-    period: "69 av. J.-C. - 30 av. J.-C.",
-    summary:
-      "Dernière pharaonne d'Égypte, connue pour son intelligence politique et ses alliances avec Jules César et Marc Antoine.",
-    theme: "empires",
-    image: "/cleopatra-vii.jpg",
-  },
-  {
-    id: 7,
-    title: "Léonard de Vinci",
-    period: "1452 - 1519",
-    summary:
-      "Génie de la Renaissance italienne, artiste, inventeur et scientifique dont les œuvres et inventions continuent d'inspirer le monde.",
-    theme: "societies",
-    image: "/leonardo-da-vinci.jpg",
-  },
-  {
-    id: 8,
-    title: "Marie Curie",
-    period: "1867 - 1934",
-    summary:
-      "Physicienne et chimiste pionnière, première femme à recevoir un prix Nobel et seule personne à en recevoir deux dans des disciplines scientifiques différentes.",
-    theme: "societies",
-    image: "/marie-curie.jpg",
+    q: "L'assistant IA peut-il faire mes devoirs ?",
+    a: "Non, et ce n'est pas son rôle. Il explique les notions, aide à problématiser un sujet et à construire un plan, et vérifie ta compréhension. Il t'encourage à rédiger toi-même : c'est ce qui fait progresser.",
   },
 ]
 
-const hggspFlashcards: HGGSPFlashcard[] = [
-  {
-    id: 101,
-    title: "La Guerre Froide",
-    subtitle: "1947-1991 : L'affrontement bipolaire",
-    summary:
-      "Conflit idéologique et géopolitique entre les États-Unis et l'URSS qui a structuré les relations internationales pendant près de 50 ans, divisant le monde en deux blocs opposés.",
-    theme: "tensions",
-    image: "/cold-war-berlin-wall.jpg",
-    programLink: "Thème 2 - Faire la guerre, faire la paix",
-  },
-  {
-    id: 102,
-    title: "L'Union Européenne",
-    subtitle: "Construction et enjeux géopolitiques",
-    summary:
-      "Projet d'intégration économique et politique unique au monde, l'UE représente une puissance régionale majeure face aux défis de la mondialisation et des tensions géopolitiques.",
-    theme: "puissances",
-    image: "/european-union-flags.jpg",
-    programLink: "Thème 3 - Histoire et mémoires",
-  },
-  {
-    id: 103,
-    title: "Le Proche et Moyen-Orient",
-    subtitle: "Un foyer de conflits depuis 1945",
-    summary:
-      "Région stratégique marquée par des tensions religieuses, ethniques et territoriales, des enjeux pétroliers et l'intervention des grandes puissances dans un contexte géopolitique complexe.",
-    theme: "tensions",
-    image: "/middle-east-map.jpg",
-    programLink: "Thème 2 - Faire la guerre, faire la paix",
-  },
-  {
-    id: 104,
-    title: "La Chine : Puissance mondiale",
-    subtitle: "Ascension et ambitions géopolitiques",
-    summary:
-      "Deuxième économie mondiale et puissance émergente, la Chine développe son influence à travers les nouvelles routes de la soie et s'affirme comme rival des États-Unis dans l'ordre mondial.",
-    theme: "puissances",
-    image: "/china-great-wall.jpg",
-    programLink: "Thème 1 - De nouveaux espaces de conquête",
-  },
-  {
-    id: 105,
-    title: "Les États-Unis : Hyperpuissance",
-    subtitle: "Domination et contestation depuis 1945",
-    summary:
-      "Première puissance mondiale depuis 1945, les États-Unis exercent une influence militaire, économique et culturelle globale, tout en faisant face à de nouveaux défis géopolitiques.",
-    theme: "puissances",
-    image: "/usa-capitol-washington.jpg",
-    programLink: "Thème 1 - De nouveaux espaces de conquête",
-  },
-  {
-    id: 106,
-    title: "Le Changement Climatique",
-    subtitle: "Enjeu géopolitique du XXIe siècle",
-    summary:
-      "Défi environnemental majeur qui redessine les relations internationales, avec des impacts sur les migrations, les ressources et les conflits, nécessitant une coopération mondiale.",
-    theme: "environnement",
-    image: "/climate-change-earth.jpg",
-    programLink: "Thème 1 - L'environnement, entre exploitation et protection",
-  },
-  {
-    id: 107,
-    title: "La Course à l'Espace",
-    subtitle: "Nouvelle frontière géopolitique",
-    summary:
-      "L'espace devient un enjeu stratégique majeur du XXIe siècle, avec la militarisation croissante, l'exploitation des ressources et la compétition entre puissances spatiales.",
-    theme: "geopolitique",
-    image: "/space-race-satellites.jpg",
-    programLink: "Thème 1 - De nouveaux espaces de conquête",
-  },
-  {
-    id: 108,
-    title: "Les Océans",
-    subtitle: "Espace géopolitique stratégique",
-    summary:
-      "Les océans représentent 70% de la surface terrestre et concentrent des enjeux majeurs : routes commerciales, ressources naturelles, zones économiques exclusives et tensions territoriales.",
-    theme: "geopolitique",
-    image: "/ocean-cargo-ships.jpg",
-    programLink: "Thème 1 - De nouveaux espaces de conquête",
-  },
-  {
-    id: 109,
-    title: "La Russie",
-    subtitle: "Puissance régionale en quête de renouveau",
-    summary:
-      "Héritière de l'URSS, la Russie de Poutine tente de retrouver son statut de grande puissance à travers une politique assertive, son arsenal nucléaire et ses ressources énergétiques.",
-    theme: "puissances",
-    image: "/russia-kremlin.jpg",
-    programLink: "Thème 1 - De nouveaux espaces de conquête",
-  },
-  {
-    id: 110,
-    title: "L'Inde",
-    subtitle: "Géant démographique et puissance émergente",
-    summary:
-      "Avec 1,4 milliard d'habitants et une croissance économique forte, l'Inde s'affirme comme une puissance régionale majeure en Asie et un acteur incontournable de la mondialisation.",
-    theme: "puissances",
-    image: "/india-taj-mahal.jpg",
-    programLink: "Thème 1 - De nouveaux espaces de conquête",
-  },
-  {
-    id: 111,
-    title: "Le Conflit en Ukraine",
-    subtitle: "Point de rupture géopolitique depuis 2014",
-    summary:
-      "La crise ukrainienne depuis 2014 et l'invasion russe de 2022 marquent un tournant géopolitique majeur, ravivant les tensions entre la Russie et l'Occident dans une nouvelle confrontation.",
-    theme: "tensions",
-    image: "/ukraine-flag.jpg",
-    programLink: "Thème 2 - Faire la guerre, faire la paix",
-  },
-  {
-    id: 112,
-    title: "Le Terrorisme International",
-    subtitle: "Menace transnationale depuis le 11 septembre",
-    summary:
-      "Le terrorisme international, incarné par Al-Qaïda et l'État islamique, a profondément transformé les relations internationales et les politiques de sécurité depuis les attentats du 11 septembre 2001.",
-    theme: "tensions",
-    image: "/terrorism-memorial.jpg",
-    programLink: "Thème 2 - Faire la guerre, faire la paix",
-  },
-  {
-    id: 113,
-    title: "Les Ressources en Eau",
-    subtitle: "Or bleu du XXIe siècle",
-    summary:
-      "L'eau douce devient une ressource stratégique rare, source de tensions géopolitiques croissantes entre États, particulièrement dans les régions arides du Moyen-Orient, d'Asie et d'Afrique.",
-    theme: "environnement",
-    image: "/water-resources-dam.jpg",
-    programLink: "Thème 1 - L'environnement, entre exploitation et protection",
-  },
-  {
-    id: 114,
-    title: "La Biodiversité",
-    subtitle: "Enjeu environnemental et géopolitique",
-    summary:
-      "La sixième extinction de masse menace la biodiversité mondiale. Sa préservation devient un enjeu géopolitique majeur, opposant développement économique et protection environnementale.",
-    theme: "environnement",
-    image: "/biodiversity-rainforest.jpg",
-    programLink: "Thème 1 - L'environnement, entre exploitation et protection",
-  },
+const facts = [
+  { title: "Le mot « tiers-monde »", text: "Le démographe Alfred Sauvy l'invente en 1952, par analogie avec le tiers état de 1789." },
+  { title: "Une mer presque disparue", text: "La mer d'Aral a perdu l'essentiel de son volume depuis les années 1960, à cause de l'irrigation du coton." },
+  { title: "La deuxième ZEE du monde", text: "Grâce à ses outre-mer, la France possède environ 10,2 millions de km² de zone économique exclusive." },
 ]
 
-function getThemeColor(theme: Theme) {
-  switch (theme) {
-    case "empires":
-      return "bg-blue-500"
-    case "wars":
-      return "bg-red-500"
-    case "societies":
-      return "bg-green-500"
-    default:
-      return "bg-gray-500"
-  }
-}
-
-function getThemeLabel(theme: Theme) {
-  switch (theme) {
-    case "empires":
-      return "Empires"
-    case "wars":
-      return "Guerres"
-    case "societies":
-      return "Sociétés"
-    default:
-      return ""
-  }
-}
-
-function getHGGSPThemeColor(theme: HGGSPTheme) {
-  switch (theme) {
-    case "geopolitique":
-      return "bg-indigo-500"
-    case "puissances":
-      return "bg-purple-500"
-    case "tensions":
-      return "bg-orange-500"
-    case "environnement":
-      return "bg-teal-500"
-    default:
-      return "bg-gray-500"
-  }
-}
-
-function getHGGSPThemeLabel(theme: HGGSPTheme) {
-  switch (theme) {
-    case "geopolitique":
-      return "Géopolitique"
-    case "puissances":
-      return "Puissances"
-    case "tensions":
-      return "Tensions"
-    case "environnement":
-      return "Environnement"
-    default:
-      return ""
-  }
-}
-
-export default function HistoflashApp() {
-  const searchParams = useSearchParams()
-  const [activeView, setActiveView] = useState<"home" | "fiches" | "quiz" | "hggsp">("home")
-  const [currentQuizQuestion, setCurrentQuizQuestion] = useState(0)
-  const [selectedAnswer, setSelectedAnswer] = useState<number | null>(null)
-  const [showResult, setShowResult] = useState(false)
-  const [score, setScore] = useState(0)
-  const [flippedCards, setFlippedCards] = useState<Set<number>>(new Set())
-  const [flippedHGGSPCards, setFlippedHGGSPCards] = useState<Set<number>>(new Set())
-  const [randomCard, setRandomCard] = useState<((Flashcard | HGGSPFlashcard) & { type: "history" | "hggsp" }) | null>(
-    null,
-  )
-
-  useEffect(() => {
-    const view = searchParams.get("view")
-    if (view === "fiches" || view === "quiz" || view === "hggsp") {
-      setActiveView(view)
-    }
-  }, [searchParams])
-
-  useEffect(() => {
-    const allCards = [
-      ...flashcards.map((card) => ({ ...card, type: "history" as const })),
-      ...hggspFlashcards.map((card) => ({ ...card, type: "hggsp" as const })),
-    ]
-    const randomIndex = Math.floor(Math.random() * allCards.length)
-    setRandomCard(allCards[randomIndex])
-  }, [])
-
-  const handleAnswerSelect = (answerIndex: number) => {
-    if (showResult) return
-    setSelectedAnswer(answerIndex)
-  }
-
-  const handleNextQuestion = () => {
-    if (selectedAnswer === quizQuestions[currentQuizQuestion].correctAnswer) {
-      setScore(score + 1)
-    }
-
-    if (currentQuizQuestion < quizQuestions.length - 1) {
-      setCurrentQuizQuestion(currentQuizQuestion + 1)
-      setSelectedAnswer(null)
-      setShowResult(false)
-    } else {
-      setShowResult(true)
-    }
-  }
-
-  const resetQuiz = () => {
-    setCurrentQuizQuestion(0)
-    setSelectedAnswer(null)
-    setShowResult(false)
-    setScore(0)
-  }
-
-  const toggleCardFlip = (cardId: number) => {
-    setFlippedCards((prev) => {
-      const newSet = new Set(prev)
-      if (newSet.has(cardId)) {
-        newSet.delete(cardId)
-      } else {
-        newSet.add(cardId)
-      }
-      return newSet
-    })
-  }
-
-  const toggleHGGSPCardFlip = (cardId: number) => {
-    setFlippedHGGSPCards((prev) => {
-      const newSet = new Set(prev)
-      if (newSet.has(cardId)) {
-        newSet.delete(cardId)
-      } else {
-        newSet.add(cardId)
-      }
-      return newSet
-    })
-  }
-
-  const quizQuestions: any[] = [
-    {
-      id: 1,
-      question: "En quelle année a commencé la Révolution Française ?",
-      options: ["1789", "1776", "1799", "1804"],
-      correctAnswer: 0,
-    },
-    {
-      id: 2,
-      question: "Quelle ville était le centre de l'Empire Romain ?",
-      options: ["Athènes", "Rome", "Constantinople", "Alexandrie"],
-      correctAnswer: 1,
-    },
-    {
-      id: 3,
-      question: "Quel mouvement culturel a marqué la transition entre le Moyen Âge et l'époque moderne ?",
-      options: ["Les Lumières", "Le Romantisme", "La Renaissance", "Le Baroque"],
-      correctAnswer: 2,
-    },
-  ]
+export default function HomePage() {
+  const featured = allChapters.filter((c) => hasChapterContent(c.chapter.slug)).slice(-6).reverse()
+  const totalChapters = allChapters.length
 
   return (
-    <div className="min-h-screen bg-[#FAF0DC]">
-      {/* Navigation */}
-      <nav className="bg-white/80 backdrop-blur-sm border-b border-[#E5D5B7] sticky top-0 z-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between items-center h-16">
-            <div className="flex items-center gap-2">
-              <BookOpen className="w-6 h-6 text-[#8B7355]" />
-              <h1 className="text-xl font-bold text-[#2C2416]">Histoflash</h1>
-            </div>
-            <div className="flex gap-4">
-              <Button
-                variant={activeView === "home" ? "default" : "ghost"}
-                onClick={() => setActiveView("home")}
-                className="text-sm"
-              >
-                Accueil
-              </Button>
-              <Button
-                variant={activeView === "fiches" ? "default" : "ghost"}
-                onClick={() => setActiveView("fiches")}
-                className="text-sm"
-              >
-                Fiches
-              </Button>
-              <Button
-                variant={activeView === "hggsp" ? "default" : "ghost"}
-                onClick={() => setActiveView("hggsp")}
-                className="text-sm"
-              >
-                HGGSP
-              </Button>
-              <Button
-                variant={activeView === "quiz" ? "default" : "ghost"}
-                onClick={() => {
-                  setActiveView("quiz")
-                  resetQuiz()
-                }}
-                className="text-sm"
-              >
-                Quiz
-              </Button>
-              <Link href="/histochat">
-                <Button variant="ghost" className="text-sm">
-                  HistoChat
-                </Button>
-              </Link>
-            </div>
-          </div>
-        </div>
-      </nav>
-
-      {/* Main Content */}
-      <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        {activeView === "home" && (
-          <div className="space-y-12">
-            {/* Hero Section */}
-            <div className="text-center space-y-6 py-12">
-              <h2 className="text-5xl md:text-6xl font-bold text-[#2C2416] text-balance">
-                Apprenez l'histoire avec élégance
-              </h2>
-              <p className="text-xl text-[#5C4A3A] max-w-2xl mx-auto text-pretty">
-                Découvrez les grands moments de l'histoire à travers des fiches interactives et des quiz captivants.
-              </p>
-              <div className="flex gap-4 justify-center pt-4">
-                <Button
-                  size="lg"
-                  onClick={() => setActiveView("fiches")}
-                  className="bg-[#8B7355] hover:bg-[#6B5845] text-white"
-                >
-                  Commencer à apprendre
-                  <ChevronRight className="w-4 h-4 ml-2" />
-                </Button>
-                <Button
-                  size="lg"
-                  variant="outline"
-                  onClick={() => setActiveView("quiz")}
-                  className="border-[#8B7355] text-[#8B7355] hover:bg-[#8B7355]/10"
-                >
-                  Tester mes connaissances
-                </Button>
-              </div>
-            </div>
-
-            {/* Le saviez-vous ? */}
-            {randomCard && (
-              <div className="space-y-6">
-                <div className="text-center space-y-2">
-                  <h3 className="text-3xl font-bold text-[#2C2416]">Le saviez-vous ?</h3>
-                  <p className="text-[#5C4A3A]">Une découverte historique pour enrichir votre culture</p>
-                </div>
-
-                <Link
-                  href={randomCard.type === "history" ? `/fiche/${randomCard.id}` : `/hggsp/${randomCard.id}`}
-                  className="block max-w-4xl mx-auto"
-                >
-                  <Card className="overflow-hidden bg-white border-[#E5D5B7] hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 cursor-pointer group">
-                    <div className="md:flex">
-                      <div className="md:w-2/5 relative h-64 md:h-auto overflow-hidden">
-                        <img
-                          src={randomCard.image || "/placeholder.svg"}
-                          alt={randomCard.title}
-                          className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
-                        />
-                        <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
-                        {randomCard.type === "history" ? (
-                          <div
-                            className={`absolute top-4 right-4 ${getThemeColor((randomCard as Flashcard).theme)} text-white px-3 py-1 rounded-full text-sm font-medium shadow-lg`}
-                          >
-                            {getThemeLabel((randomCard as Flashcard).theme)}
-                          </div>
-                        ) : (
-                          <div
-                            className={`absolute top-4 right-4 ${getHGGSPThemeColor((randomCard as HGGSPFlashcard).theme)} text-white px-3 py-1 rounded-full text-sm font-medium shadow-lg`}
-                          >
-                            {getHGGSPThemeLabel((randomCard as HGGSPFlashcard).theme)}
-                          </div>
-                        )}
-                      </div>
-                      <div className="md:w-3/5 p-8 space-y-4">
-                        {randomCard.type === "history" ? (
-                          <>
-                            <div className="flex items-center gap-2 text-sm text-[#8B7355]">
-                              <Clock className="w-4 h-4" />
-                              <span>{(randomCard as Flashcard).period}</span>
-                            </div>
-                            <h4 className="text-3xl font-bold text-[#2C2416] group-hover:text-[#8B7355] transition-colors">
-                              {randomCard.title}
-                            </h4>
-                          </>
-                        ) : (
-                          <>
-                            <div className="flex items-center gap-2 text-xs text-purple-600 font-medium">
-                              <Globe className="w-4 h-4" />
-                              <span>{(randomCard as HGGSPFlashcard).programLink}</span>
-                            </div>
-                            <h4 className="text-3xl font-bold text-[#2C2416] group-hover:text-purple-600 transition-colors">
-                              {randomCard.title}
-                            </h4>
-                            <p className="text-sm text-[#8B7355] font-semibold">
-                              {(randomCard as HGGSPFlashcard).subtitle}
-                            </p>
-                          </>
-                        )}
-                        <div className="h-px bg-[#E5D5B7]" />
-                        <p className="text-[#5C4A3A] leading-relaxed line-clamp-3">{randomCard.summary}</p>
-                        <div className="flex items-center gap-2 text-[#8B7355] group-hover:text-[#6B5845] font-medium pt-2">
-                          <span>Découvrir cette fiche</span>
-                          <ChevronRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-                        </div>
-                      </div>
-                    </div>
-                  </Card>
+    <>
+      {/* Hero */}
+      <section className="relative overflow-hidden border-b">
+        <div className="paper-lines pointer-events-none absolute inset-0 opacity-50 [mask-image:linear-gradient(to_bottom,black,transparent)]" aria-hidden />
+        <div className="relative mx-auto grid max-w-6xl gap-12 px-4 pb-20 pt-14 sm:px-6 lg:grid-cols-[1.15fr_1fr] lg:items-center lg:pt-20">
+          <div className="space-y-7">
+            <Badge variant="outline" className="bg-background">
+              <GraduationCap /> Programmes officiels · Seconde, Première, Terminale
+            </Badge>
+            <h1 className="font-serif text-4xl font-semibold leading-[1.08] tracking-tight sm:text-5xl lg:text-6xl">
+              Réviser l'histoire‑géo et l'HGGSP,{" "}
+              <span className="relative whitespace-nowrap text-primary">
+                avec méthode
+                <svg viewBox="0 0 220 12" className="absolute -bottom-2 left-0 h-3 w-full text-accent" aria-hidden preserveAspectRatio="none">
+                  <path d="M2 9c50-6 120-8 216-4" stroke="currentColor" strokeWidth="5" fill="none" strokeLinecap="round" />
+                </svg>
+              </span>
+              .
+            </h1>
+            <p className="max-w-xl text-lg leading-relaxed text-muted-foreground">
+              Des fiches de cours claires, des flashcards en répétition espacée, des quiz corrigés et la méthodologie du bac. Tout ce qu'il faut pour
+              comprendre, retenir et réussir.
+            </p>
+            <div className="flex flex-wrap gap-3">
+              <Button asChild size="lg">
+                <Link href="#niveaux">
+                  Choisir mon niveau <ArrowRight />
                 </Link>
+              </Button>
+              <Button asChild size="lg" variant="outline">
+                <Link href="/tarifs">Gratuit · Premium dès {pricing.yearly.monthlyEquivalent}/mois</Link>
+              </Button>
+            </div>
+            <ul className="flex flex-wrap gap-x-6 gap-y-2 text-sm text-muted-foreground">
+              {["Fiches gratuites et sans publicité", `${totalChapters} chapitres au programme`, "Pensé pour le bac"].map((t) => (
+                <li key={t} className="flex items-center gap-1.5">
+                  <Check className="size-4 text-success" /> {t}
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Aperçu visuel d'une fiche et d'une flashcard */}
+          <div className="relative mx-auto w-full max-w-md lg:max-w-none" aria-hidden>
+            <div className="rotate-[-2deg] rounded-2xl border bg-card p-6 shadow-xl shadow-primary/5">
+              <div className="flex items-center gap-2">
+                <Badge variant="histoire">Histoire</Badge>
+                <span className="text-xs text-muted-foreground">Terminale · Thème 2</span>
               </div>
-            )}
-
-            {/* Features */}
-            <div className="grid md:grid-cols-3 gap-8 pt-8">
-              <Card className="p-6 bg-white border-[#E5D5B7] hover:shadow-lg transition-shadow">
-                <div className="w-12 h-12 rounded-full bg-blue-100 flex items-center justify-center mb-4">
-                  <BookOpen className="w-6 h-6 text-blue-600" />
-                </div>
-                <h3 className="text-xl font-semibold text-[#2C2416] mb-2">Fiches Interactives</h3>
-                <p className="text-[#5C4A3A]">
-                  Explorez l'histoire à travers des fiches visuelles et engageantes, organisées par thème.
-                </p>
-              </Card>
-
-              <Card className="p-6 bg-white border-[#E5D5B7] hover:shadow-lg transition-shadow">
-                <div className="w-12 h-12 rounded-full bg-purple-100 flex items-center justify-center mb-4">
-                  <Globe className="w-6 h-6 text-purple-600" />
-                </div>
-                <h3 className="text-xl font-semibold text-[#2C2416] mb-2">HGGSP</h3>
-                <p className="text-[#5C4A3A]">
-                  Fiches géopolitiques conformes au programme scolaire français pour préparer vos examens.
-                </p>
-              </Card>
-
-              <Card className="p-6 bg-white border-[#E5D5B7] hover:shadow-lg transition-shadow">
-                <div className="w-12 h-12 rounded-full bg-red-100 flex items-center justify-center mb-4">
-                  <Trophy className="w-6 h-6 text-red-600" />
-                </div>
-                <h3 className="text-xl font-semibold text-[#2C2416] mb-2">Quiz Captivants</h3>
-                <p className="text-[#5C4A3A]">
-                  Testez vos connaissances avec des quiz interactifs et suivez votre progression.
-                </p>
-              </Card>
-            </div>
-          </div>
-        )}
-
-        {activeView === "fiches" && (
-          <div className="space-y-8" id="fiches">
-            <div className="text-center space-y-4">
-              <h2 className="text-4xl font-bold text-[#2C2416]">Fiches Historiques</h2>
-              <p className="text-lg text-[#5C4A3A]">Explorez les grands moments de l'histoire</p>
-              <p className="text-sm text-[#8B7355] italic">Cliquez sur une fiche pour la retourner</p>
-            </div>
-
-            <div className="grid md:grid-cols-2 gap-6">
-              {flashcards.map((card) => {
-                const isFlipped = flippedCards.has(card.id)
-
-                return (
-                  <div key={card.id} className="perspective-1000">
-                    <div
-                      className={`relative transition-transform duration-500 transform-style-3d ${
-                        isFlipped ? "rotate-y-180" : ""
-                      }`}
-                      style={{
-                        transformStyle: "preserve-3d",
-                        transform: isFlipped ? "rotateY(180deg)" : "rotateY(0deg)",
-                      }}
-                    >
-                      <Card
-                        className={`overflow-hidden bg-white border-[#E5D5B7] hover:shadow-xl transition-all duration-300 hover:-translate-y-1 cursor-pointer ${
-                          isFlipped ? "invisible" : "visible"
-                        }`}
-                        style={{
-                          backfaceVisibility: "hidden",
-                        }}
-                        onClick={() => toggleCardFlip(card.id)}
-                      >
-                        <div className="relative h-48 overflow-hidden">
-                          <img
-                            src={card.image || "/placeholder.svg"}
-                            alt={card.title}
-                            className="w-full h-full object-cover"
-                          />
-                          <div
-                            className={`absolute top-4 right-4 ${getThemeColor(card.theme)} text-white px-3 py-1 rounded-full text-sm font-medium`}
-                          >
-                            {getThemeLabel(card.theme)}
-                          </div>
-                        </div>
-                        <div className="p-6 space-y-3">
-                          <div className="flex items-center gap-2 text-sm text-[#8B7355]">
-                            <Clock className="w-4 h-4" />
-                            <span>{card.period}</span>
-                          </div>
-                          <h3 className="text-2xl font-bold text-[#2C2416]">{card.title}</h3>
-                          <p className="text-sm text-[#8B7355] italic">Cliquez pour voir les détails</p>
-                        </div>
-                      </Card>
-
-                      <Card
-                        className={`absolute inset-0 overflow-hidden bg-gradient-to-br from-white to-[#FAF0DC] border-[#E5D5B7] hover:shadow-xl transition-all duration-300 ${
-                          isFlipped ? "visible" : "invisible"
-                        }`}
-                        style={{
-                          backfaceVisibility: "hidden",
-                          transform: "rotateY(180deg)",
-                        }}
-                      >
-                        <div className="p-6 h-full flex flex-col justify-between space-y-4">
-                          <div className="space-y-4">
-                            <div className="flex items-center justify-between">
-                              <div
-                                className={`${getThemeColor(card.theme)} text-white px-3 py-1 rounded-full text-sm font-medium`}
-                              >
-                                {getThemeLabel(card.theme)}
-                              </div>
-                              <div className="flex items-center gap-2 text-sm text-[#8B7355]">
-                                <Clock className="w-4 h-4" />
-                                <span>{card.period}</span>
-                              </div>
-                            </div>
-                            <h3 className="text-2xl font-bold text-[#2C2416]">{card.title}</h3>
-                            <div className="h-px bg-[#E5D5B7]" />
-                            <p className="text-[#5C4A3A] leading-relaxed">{card.summary}</p>
-                          </div>
-                          <div className="space-y-2">
-                            <Link href={`/fiche/${card.id}`} onClick={(e) => e.stopPropagation()}>
-                              <Button className="w-full bg-[#8B7355] hover:bg-[#6B5845] text-white">
-                                En voir plus
-                                <ChevronRight className="w-4 h-4 ml-2" />
-                              </Button>
-                            </Link>
-                            <button
-                              onClick={() => toggleCardFlip(card.id)}
-                              className="w-full text-sm text-[#8B7355] hover:text-[#6B5845] italic"
-                            >
-                              Cliquez pour retourner
-                            </button>
-                          </div>
-                        </div>
-                      </Card>
-                    </div>
-                  </div>
-                )
-              })}
-            </div>
-          </div>
-        )}
-
-        {activeView === "hggsp" && (
-          <div className="space-y-8" id="hggsp">
-            <div className="text-center space-y-4">
-              <div className="flex items-center justify-center gap-3 mb-4">
-                <Globe className="w-10 h-10 text-purple-600" />
-                <h2 className="text-4xl font-bold text-[#2C2416]">Fiches HGGSP</h2>
+              <p className="mt-4 font-serif text-2xl font-semibold leading-snug">Bipolarisation et émergence du tiers-monde</p>
+              <div className="mt-4 rounded-lg border-l-4 border-primary bg-secondary/60 p-3 text-sm">
+                Comment la guerre froide recompose-t-elle l'ordre international entre 1947 et 1973 ?
               </div>
-              <p className="text-lg text-[#5C4A3A]">Histoire-Géographie, Géopolitique et Sciences Politiques</p>
-              <p className="text-sm text-purple-600 font-medium">Programme officiel français • Terminale</p>
-              <p className="text-sm text-[#8B7355] italic">Cliquez sur une fiche pour la retourner</p>
+              <div className="mt-4 space-y-2">
+                {[["1947", "Doctrine Truman, plan Marshall"], ["1955", "Conférence de Bandung"], ["1962", "Crise des missiles de Cuba"]].map(([d, e]) => (
+                  <div key={d} className="flex gap-3 text-sm">
+                    <span className="w-10 font-semibold tabular-nums text-primary">{d}</span>
+                    <span className="text-muted-foreground">{e}</span>
+                  </div>
+                ))}
+              </div>
             </div>
-
-            <div className="grid md:grid-cols-2 gap-6">
-              {hggspFlashcards.map((card) => {
-                const isFlipped = flippedHGGSPCards.has(card.id)
-
-                return (
-                  <div key={card.id} className="perspective-1000">
-                    <div
-                      className={`relative transition-transform duration-500 transform-style-3d ${
-                        isFlipped ? "rotate-y-180" : ""
-                      }`}
-                      style={{
-                        transformStyle: "preserve-3d",
-                        transform: isFlipped ? "rotateY(180deg)" : "rotateY(0deg)",
-                      }}
-                    >
-                      <Card
-                        className={`overflow-hidden bg-white border-[#E5D5B7] hover:shadow-xl transition-all duration-300 hover:-translate-y-1 cursor-pointer ${
-                          isFlipped ? "invisible" : "visible"
-                        }`}
-                        style={{
-                          backfaceVisibility: "hidden",
-                        }}
-                        onClick={() => toggleHGGSPCardFlip(card.id)}
-                      >
-                        <div className="relative h-48 overflow-hidden">
-                          <img
-                            src={card.image || "/placeholder.svg"}
-                            alt={card.title}
-                            className="w-full h-full object-cover"
-                          />
-                          <div
-                            className={`absolute top-4 right-4 ${getHGGSPThemeColor(card.theme)} text-white px-3 py-1 rounded-full text-sm font-medium`}
-                          >
-                            {getHGGSPThemeLabel(card.theme)}
-                          </div>
-                        </div>
-                        <div className="p-6 space-y-3">
-                          <div className="flex items-center gap-2 text-xs text-purple-600 font-medium">
-                            <Globe className="w-4 h-4" />
-                            <span>{card.programLink}</span>
-                          </div>
-                          <h3 className="text-2xl font-bold text-[#2C2416]">{card.title}</h3>
-                          <p className="text-sm text-[#8B7355] font-medium">{card.subtitle}</p>
-                          <p className="text-sm text-[#8B7355] italic">Cliquez pour voir les détails</p>
-                        </div>
-                      </Card>
-
-                      <Card
-                        className={`absolute inset-0 overflow-hidden bg-gradient-to-br from-white to-[#FAF0DC] border-[#E5D5B7] hover:shadow-xl transition-all duration-300 ${
-                          isFlipped ? "visible" : "invisible"
-                        }`}
-                        style={{
-                          backfaceVisibility: "hidden",
-                          transform: "rotateY(180deg)",
-                        }}
-                      >
-                        <div className="p-6 h-full flex flex-col justify-between space-y-4">
-                          <div className="space-y-4">
-                            <div className="flex items-center justify-between">
-                              <div
-                                className={`${getHGGSPThemeColor(card.theme)} text-white px-3 py-1 rounded-full text-sm font-medium`}
-                              >
-                                {getHGGSPThemeLabel(card.theme)}
-                              </div>
-                              <div className="flex items-center gap-2 text-xs text-purple-600 font-medium">
-                                <Globe className="w-4 h-4" />
-                              </div>
-                            </div>
-                            <h3 className="text-2xl font-bold text-[#2C2416]">{card.title}</h3>
-                            <p className="text-sm text-[#8B7355] font-semibold">{card.subtitle}</p>
-                            <div className="h-px bg-[#E5D5B7]" />
-                            <p className="text-[#5C4A3A] leading-relaxed">{card.summary}</p>
-                            <div className="bg-purple-50 border border-purple-200 rounded-lg p-3">
-                              <p className="text-xs text-purple-700 font-medium">📚 {card.programLink}</p>
-                            </div>
-                          </div>
-                          <div className="space-y-2">
-                            <Link href={`/hggsp/${card.id}`} onClick={(e) => e.stopPropagation()}>
-                              <Button className="w-full bg-purple-600 hover:bg-purple-700 text-white">
-                                En voir plus
-                                <ChevronRight className="w-4 h-4 ml-2" />
-                              </Button>
-                            </Link>
-                            <button
-                              onClick={() => toggleHGGSPCardFlip(card.id)}
-                              className="w-full text-sm text-[#8B7355] hover:text-[#6B5845] italic"
-                            >
-                              Cliquez pour retourner
-                            </button>
-                          </div>
-                        </div>
-                      </Card>
-                    </div>
-                  </div>
-                )
-              })}
+            <div className="absolute -bottom-20 -right-2 w-60 rotate-[4deg] rounded-xl border border-primary/30 bg-secondary p-4 shadow-lg sm:-right-6">
+              <p className="eyebrow text-primary">Flashcard</p>
+              <p className="mt-2 font-serif text-lg font-medium leading-snug">Qui invente l'expression « tiers-monde » ?</p>
+              <div className="mt-3 grid grid-cols-4 gap-1 text-center text-[11px] font-medium">
+                {["À revoir", "Difficile", "Bien", "Facile"].map((g, i) => (
+                  <span key={g} className={i === 2 ? "rounded bg-primary py-1 text-primary-foreground" : "rounded bg-background py-1"}>
+                    {g}
+                  </span>
+                ))}
+              </div>
             </div>
-          </div>
-        )}
-
-        {activeView === "quiz" && (
-          <div className="max-w-3xl mx-auto">
-            {!showResult ? (
-              <Card className="p-8 bg-white border-[#E5D5B7]">
-                <div className="space-y-8">
-                  {/* Progress Bar */}
-                  <div className="space-y-2">
-                    <div className="flex justify-between text-sm text-[#5C4A3A]">
-                      <span>
-                        Question {currentQuizQuestion + 1} sur {quizQuestions.length}
-                      </span>
-                      <span>
-                        Score: {score}/{quizQuestions.length}
-                      </span>
-                    </div>
-                    <div className="w-full bg-[#E5D5B7] rounded-full h-2">
-                      <div
-                        className="bg-[#8B7355] h-2 rounded-full transition-all duration-300"
-                        style={{ width: `${((currentQuizQuestion + 1) / quizQuestions.length) * 100}%` }}
-                      />
-                    </div>
-                  </div>
-
-                  {/* Question */}
-                  <div className="space-y-6">
-                    <h3 className="text-2xl font-bold text-[#2C2416] text-balance">
-                      {quizQuestions[currentQuizQuestion].question}
-                    </h3>
-
-                    {/* Options */}
-                    <div className="space-y-3">
-                      {quizQuestions[currentQuizQuestion].options.map((option, index) => (
-                        <button
-                          key={index}
-                          onClick={() => handleAnswerSelect(index)}
-                          className={`w-full p-4 text-left rounded-lg border-2 transition-all ${
-                            selectedAnswer === index
-                              ? "border-[#8B7355] bg-[#8B7355]/10"
-                              : "border-[#E5D5B7] hover:border-[#8B7355]/50 bg-white"
-                          }`}
-                        >
-                          <div className="flex items-center gap-3">
-                            <div
-                              className={`w-6 h-6 rounded-full border-2 flex items-center justify-center ${
-                                selectedAnswer === index ? "border-[#8B7355] bg-[#8B7355]" : "border-[#E5D5B7]"
-                              }`}
-                            >
-                              {selectedAnswer === index && <Check className="w-4 h-4 text-white" />}
-                            </div>
-                            <span className="text-[#2C2416] font-medium">{option}</span>
-                          </div>
-                        </button>
-                      ))}
-                    </div>
-
-                    {/* Next Button */}
-                    <Button
-                      onClick={handleNextQuestion}
-                      disabled={selectedAnswer === null}
-                      className="w-full bg-[#8B7355] hover:bg-[#6B5845] text-white"
-                      size="lg"
-                    >
-                      {currentQuizQuestion < quizQuestions.length - 1 ? "Question suivante" : "Voir les résultats"}
-                      <ChevronRight className="w-4 h-4 ml-2" />
-                    </Button>
-                  </div>
-                </div>
-              </Card>
-            ) : (
-              <Card className="p-8 bg-white border-[#E5D5B7] text-center">
-                <div className="space-y-6">
-                  <div className="w-20 h-20 rounded-full bg-green-100 flex items-center justify-center mx-auto">
-                    <Trophy className="w-10 h-10 text-green-600" />
-                  </div>
-                  <h3 className="text-3xl font-bold text-[#2C2416]">Quiz terminé !</h3>
-                  <p className="text-5xl font-bold text-[#8B7355]">
-                    {score}/{quizQuestions.length}
-                  </p>
-                  <p className="text-lg text-[#5C4A3A]">
-                    {score === quizQuestions.length
-                      ? "Parfait ! Vous maîtrisez le sujet !"
-                      : score >= quizQuestions.length / 2
-                        ? "Bon travail ! Continuez à apprendre."
-                        : "Continuez à vous entraîner pour progresser."}
-                  </p>
-                  <div className="flex gap-4 justify-center pt-4">
-                    <Button onClick={resetQuiz} className="bg-[#8B7355] hover:bg-[#6B5845] text-white" size="lg">
-                      Recommencer le quiz
-                    </Button>
-                    <Button
-                      onClick={() => setActiveView("fiches")}
-                      variant="outline"
-                      className="border-[#8B7355] text-[#8B7355] hover:bg-[#8B7355]/10"
-                      size="lg"
-                    >
-                      Voir les fiches
-                    </Button>
-                  </div>
-                </div>
-              </Card>
-            )}
-          </div>
-        )}
-      </main>
-
-      {/* Footer */}
-      <footer className="bg-white/80 backdrop-blur-sm border-t border-[#E5D5B7] mt-20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-          <div className="text-center text-[#5C4A3A]">
-            <p className="text-sm">© 2025 Histoflash. Apprendre l'histoire avec élégance et simplicité.</p>
           </div>
         </div>
-      </footer>
-    </div>
+      </section>
+
+      {/* Niveaux */}
+      <section id="niveaux" className="mx-auto max-w-6xl scroll-mt-20 px-4 pt-20 sm:px-6">
+        <div className="max-w-2xl">
+          <p className="eyebrow">Par niveau</p>
+          <h2 className="mt-2 font-serif text-3xl font-semibold tracking-tight sm:text-4xl">Tout le programme du lycée, chapitre par chapitre</h2>
+        </div>
+        <div className="mt-8 grid gap-4 md:grid-cols-3">
+          {levels.map((level) => {
+            const progs = programmes.filter((p) => p.level === level.slug)
+            const count = allChapters.filter((c) => c.level.slug === level.slug).length
+            return (
+              <div key={level.slug} className="flex flex-col rounded-2xl border bg-card p-6">
+                <p className="font-serif text-5xl font-semibold text-primary/90">{level.short}</p>
+                <h3 className="mt-3 font-serif text-2xl font-semibold">{level.name}</h3>
+                <p className="mt-2 text-sm text-muted-foreground">{count} chapitres</p>
+                <ul className="mt-5 space-y-1.5">
+                  {progs.map((p) => (
+                    <li key={p.subject}>
+                      <Link
+                        href={`/${level.slug}/${p.subject}`}
+                        className="flex items-center justify-between rounded-lg px-3 py-2 text-sm font-medium hover:bg-muted"
+                      >
+                        {p.subject === "hggsp" ? "Spécialité HGGSP" : p.subject === "histoire" ? "Histoire" : "Géographie"}
+                        <ArrowRight className="size-4 text-muted-foreground" />
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            )
+          })}
+        </div>
+      </section>
+
+      {/* Méthode Histoflash */}
+      <section className="mx-auto max-w-6xl px-4 pt-24 sm:px-6">
+        <div className="max-w-2xl">
+          <p className="eyebrow">La méthode</p>
+          <h2 className="mt-2 font-serif text-3xl font-semibold tracking-tight sm:text-4xl">Comprendre, retenir, s'entraîner</h2>
+          <p className="mt-3 text-muted-foreground">
+            Trois étapes issues des recherches sur l'apprentissage : la récupération active et la répétition espacée sont parmi les techniques de
+            révision les plus efficaces.
+          </p>
+        </div>
+        <div className="mt-10 grid gap-6 md:grid-cols-3">
+          {[
+            { icon: ScrollText, title: "Comprendre", text: "Une fiche structurée par chapitre : problématique, cours en parties, dates clés, notions et acteurs." },
+            { icon: Brain, title: "Retenir", text: "Des flashcards qui reviennent au bon moment grâce à la répétition espacée, pour mémoriser durablement." },
+            { icon: ListChecks, title: "S'entraîner", text: "Des quiz corrigés, des sujets type bac et la méthode de la dissertation, de l'étude de document et du croquis." },
+          ].map((step, i) => (
+            <div key={step.title} className="relative rounded-2xl border bg-card p-6">
+              <span className="absolute right-5 top-4 font-serif text-5xl font-semibold text-muted-foreground/15">{i + 1}</span>
+              <span className="flex size-10 items-center justify-center rounded-lg bg-secondary text-primary">
+                <step.icon className="size-5" />
+              </span>
+              <h3 className="mt-4 font-serif text-xl font-semibold">{step.title}</h3>
+              <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{step.text}</p>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* Fiches à la une */}
+      <section className="mx-auto max-w-6xl px-4 pt-24 sm:px-6">
+        <div className="flex flex-wrap items-end justify-between gap-4">
+          <div>
+            <p className="eyebrow">À réviser</p>
+            <h2 className="mt-2 font-serif text-3xl font-semibold tracking-tight sm:text-4xl">Fiches complètes</h2>
+          </div>
+          <Button asChild variant="ghost">
+            <Link href="/terminale">
+              Toutes les fiches de Terminale <ArrowRight />
+            </Link>
+          </Button>
+        </div>
+        <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+          {featured.map((c) => (
+            <ChapterCard key={c.path} loc={c} available showLevel />
+          ))}
+        </div>
+      </section>
+
+      {/* Le saviez-vous ? */}
+      <section className="mx-auto max-w-6xl px-4 pt-24 sm:px-6">
+        <div className="rounded-2xl border bg-secondary/50 p-6 sm:p-10">
+          <p className="eyebrow">Le saviez-vous ?</p>
+          <div className="mt-5 grid gap-6 md:grid-cols-3">
+            {facts.map((f) => (
+              <div key={f.title}>
+                <p className="font-serif text-lg font-semibold">{f.title}</p>
+                <p className="mt-1 text-sm leading-relaxed text-muted-foreground">{f.text}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Outils */}
+      <section className="mx-auto max-w-6xl px-4 pt-24 sm:px-6">
+        <div className="grid gap-4 md:grid-cols-3">
+          {[
+            { icon: Layers, title: "Révisions espacées", text: "Une file de révision quotidienne, toutes matières confondues.", href: "/revisions" },
+            { icon: PenLine, title: "Méthodologie", text: "Dissertation, étude critique, croquis, grand oral : étape par étape.", href: "/methodologie" },
+            { icon: Bot, title: "Assistant IA", text: "Pose tes questions de cours et construis tes plans, avec une IA cadrée sur le programme.", href: "/assistant" },
+          ].map((tool) => (
+            <Link key={tool.href} href={tool.href} className="group rounded-2xl border bg-card p-6 transition-shadow hover:shadow-md">
+              <tool.icon className="size-6 text-primary" />
+              <h3 className="mt-4 font-serif text-xl font-semibold group-hover:text-primary">{tool.title}</h3>
+              <p className="mt-2 text-sm text-muted-foreground">{tool.text}</p>
+            </Link>
+          ))}
+        </div>
+      </section>
+
+      {/* Tarifs */}
+      <section className="mx-auto max-w-6xl px-4 pt-24 sm:px-6">
+        <div className="mx-auto max-w-2xl text-center">
+          <p className="eyebrow">Tarifs</p>
+          <h2 className="mt-2 font-serif text-3xl font-semibold tracking-tight sm:text-4xl">Gratuit pour apprendre, Premium pour aller plus loin</h2>
+        </div>
+        <div className="mx-auto mt-10 grid max-w-4xl gap-4 md:grid-cols-2">
+          <div className="rounded-2xl border bg-card p-7">
+            <p className="font-serif text-2xl font-semibold">Gratuit</p>
+            <p className="mt-1 text-sm text-muted-foreground">Pour tous les lycéens, sans carte bancaire.</p>
+            <ul className="mt-5 space-y-2.5 text-sm">
+              {freeFeatures.map((f) => (
+                <li key={f} className="flex gap-2">
+                  <Check className="mt-0.5 size-4 shrink-0 text-success" /> {f}
+                </li>
+              ))}
+            </ul>
+          </div>
+          <div className="rounded-2xl border-2 border-primary bg-card p-7 shadow-lg shadow-primary/10">
+            <div className="flex items-center justify-between">
+              <p className="font-serif text-2xl font-semibold">Premium</p>
+              <Badge variant="premium">{pricing.trialDays} jours offerts</Badge>
+            </div>
+            <p className="mt-1 text-sm text-muted-foreground">
+              {pricing.yearly.label}/an ({pricing.yearly.monthlyEquivalent}/mois) ou {pricing.monthly.label}/mois.
+            </p>
+            <ul className="mt-5 space-y-2.5 text-sm">
+              {premiumFeatures.map((f) => (
+                <li key={f} className="flex gap-2">
+                  <Check className="mt-0.5 size-4 shrink-0 text-primary" /> {f}
+                </li>
+              ))}
+            </ul>
+            <Button asChild className="mt-6 w-full">
+              <Link href="/tarifs">Découvrir Premium</Link>
+            </Button>
+          </div>
+        </div>
+      </section>
+
+      {/* FAQ */}
+      <section className="mx-auto max-w-3xl px-4 pt-24 sm:px-6">
+        <h2 className="text-center font-serif text-3xl font-semibold tracking-tight">Questions fréquentes</h2>
+        <div className="mt-8">
+          <Faq items={faq} />
+        </div>
+      </section>
+    </>
   )
 }

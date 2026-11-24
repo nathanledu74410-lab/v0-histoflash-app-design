@@ -1,0 +1,11 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "histoflash",
+      "runtimeExecutable": "corepack",
+      "runtimeArgs": ["pnpm", "start", "-p", "3100"],
+      "port": 3100
+    }
+  ]
+}

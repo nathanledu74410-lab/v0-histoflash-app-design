@@ -3,81 +3,74 @@
 
 @custom-variant dark (&:is(.dark *));
 
+/*
+ * Histoflash — palette « encre & papier »
+ * Papier chaud, encre bleu nuit, accent ocre. Une couleur par matière.
+ */
 :root {
-  /* Histoflash warm, educational theme */
-  --background: oklch(0.97 0.02 75); /* Soft beige #FAF0DC */
-  --foreground: oklch(0.2 0.02 45); /* Dark brown #2C2416 */
-  --card: oklch(1 0 0); /* Pure white for cards */
-  --card-foreground: oklch(0.2 0.02 45);
+  --background: oklch(0.985 0.006 85);
+  --foreground: oklch(0.22 0.025 265);
+  --card: oklch(1 0 0);
+  --card-foreground: oklch(0.22 0.025 265);
   --popover: oklch(1 0 0);
-  --popover-foreground: oklch(0.2 0.02 45);
-  --primary: oklch(0.5 0.05 45); /* Warm brown #8B7355 */
+  --popover-foreground: oklch(0.22 0.025 265);
+  --primary: oklch(0.42 0.13 264);
   --primary-foreground: oklch(0.99 0 0);
-  --secondary: oklch(0.92 0.02 75); /* Light beige #E5D5B7 */
-  --secondary-foreground: oklch(0.2 0.02 45);
-  --muted: oklch(0.92 0.02 75);
-  --muted-foreground: oklch(0.4 0.02 45); /* Medium brown #5C4A3A */
-  --accent: oklch(0.92 0.02 75);
-  --accent-foreground: oklch(0.2 0.02 45);
-  --destructive: oklch(0.577 0.245 27.325);
+  --secondary: oklch(0.95 0.018 264);
+  --secondary-foreground: oklch(0.3 0.08 264);
+  --muted: oklch(0.96 0.008 85);
+  --muted-foreground: oklch(0.47 0.02 265);
+  --accent: oklch(0.82 0.13 80);
+  --accent-foreground: oklch(0.27 0.05 60);
+  --destructive: oklch(0.55 0.2 27);
   --destructive-foreground: oklch(0.99 0 0);
-  --border: oklch(0.92 0.02 75);
-  --input: oklch(0.92 0.02 75);
-  --ring: oklch(0.5 0.05 45);
-  --chart-1: oklch(0.6 0.15 240); /* Blue for Empires */
-  --chart-2: oklch(0.6 0.2 25); /* Red for Wars */
-  --chart-3: oklch(0.6 0.15 140); /* Green for Societies */
-  --chart-4: oklch(0.7 0.1 75);
-  --chart-5: oklch(0.65 0.12 45);
-  --radius: 0.75rem;
-  --sidebar: oklch(0.99 0 0);
-  --sidebar-foreground: oklch(0.2 0.02 45);
-  --sidebar-primary: oklch(0.5 0.05 45);
-  --sidebar-primary-foreground: oklch(0.99 0 0);
-  --sidebar-accent: oklch(0.92 0.02 75);
-  --sidebar-accent-foreground: oklch(0.2 0.02 45);
-  --sidebar-border: oklch(0.92 0.02 75);
-  --sidebar-ring: oklch(0.5 0.05 45);
+  --success: oklch(0.55 0.13 155);
+  --border: oklch(0.91 0.01 85);
+  --input: oklch(0.89 0.012 85);
+  --ring: oklch(0.42 0.13 264);
+  --radius: 0.625rem;
+
+  --subject-histoire: oklch(0.45 0.13 264);
+  --subject-histoire-soft: oklch(0.95 0.025 264);
+  --subject-geographie: oklch(0.5 0.11 160);
+  --subject-geographie-soft: oklch(0.95 0.03 160);
+  --subject-hggsp: oklch(0.48 0.15 22);
+  --subject-hggsp-soft: oklch(0.95 0.025 22);
 }
 
 .dark {
-  --background: oklch(0.15 0.02 45);
-  --foreground: oklch(0.97 0.02 75);
-  --card: oklch(0.2 0.02 45);
-  --card-foreground: oklch(0.97 0.02 75);
-  --popover: oklch(0.2 0.02 45);
-  --popover-foreground: oklch(0.97 0.02 75);
-  --primary: oklch(0.7 0.05 75);
-  --primary-foreground: oklch(0.15 0.02 45);
-  --secondary: oklch(0.3 0.02 45);
-  --secondary-foreground: oklch(0.97 0.02 75);
-  --muted: oklch(0.3 0.02 45);
-  --muted-foreground: oklch(0.6 0.02 75);
-  --accent: oklch(0.3 0.02 45);
-  --accent-foreground: oklch(0.97 0.02 75);
-  --destructive: oklch(0.396 0.141 25.723);
-  --destructive-foreground: oklch(0.97 0.02 75);
-  --border: oklch(0.3 0.02 45);
-  --input: oklch(0.3 0.02 45);
-  --ring: oklch(0.6 0.05 75);
-  --chart-1: oklch(0.6 0.15 240);
-  --chart-2: oklch(0.6 0.2 25);
-  --chart-3: oklch(0.6 0.15 140);
-  --chart-4: oklch(0.7 0.1 75);
-  --chart-5: oklch(0.65 0.12 45);
-  --sidebar: oklch(0.15 0.02 45);
-  --sidebar-foreground: oklch(0.97 0.02 75);
-  --sidebar-primary: oklch(0.7 0.05 75);
-  --sidebar-primary-foreground: oklch(0.15 0.02 45);
-  --sidebar-accent: oklch(0.3 0.02 45);
-  --sidebar-accent-foreground: oklch(0.97 0.02 75);
-  --sidebar-border: oklch(0.3 0.02 45);
-  --sidebar-ring: oklch(0.6 0.05 75);
+  --background: oklch(0.17 0.02 265);
+  --foreground: oklch(0.95 0.008 85);
+  --card: oklch(0.21 0.022 265);
+  --card-foreground: oklch(0.95 0.008 85);
+  --popover: oklch(0.21 0.022 265);
+  --popover-foreground: oklch(0.95 0.008 85);
+  --primary: oklch(0.74 0.12 264);
+  --primary-foreground: oklch(0.17 0.02 265);
+  --secondary: oklch(0.26 0.03 264);
+  --secondary-foreground: oklch(0.88 0.04 264);
+  --muted: oklch(0.24 0.02 265);
+  --muted-foreground: oklch(0.72 0.015 265);
+  --accent: oklch(0.8 0.13 80);
+  --accent-foreground: oklch(0.22 0.04 60);
+  --destructive: oklch(0.65 0.19 25);
+  --destructive-foreground: oklch(0.99 0 0);
+  --success: oklch(0.7 0.13 155);
+  --border: oklch(0.3 0.02 265);
+  --input: oklch(0.33 0.02 265);
+  --ring: oklch(0.74 0.12 264);
+
+  --subject-histoire: oklch(0.74 0.12 264);
+  --subject-histoire-soft: oklch(0.27 0.04 264);
+  --subject-geographie: oklch(0.75 0.11 160);
+  --subject-geographie-soft: oklch(0.27 0.04 160);
+  --subject-hggsp: oklch(0.74 0.13 22);
+  --subject-hggsp-soft: oklch(0.28 0.04 22);
 }
 
 @theme inline {
-  --font-sans: "Geist", "Geist Fallback";
-  --font-mono: "Geist Mono", "Geist Mono Fallback";
+  --font-sans: var(--font-geist), ui-sans-serif, system-ui, sans-serif;
+  --font-serif: var(--font-fraunces), ui-serif, Georgia, serif;
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --color-card: var(--card);
@@ -94,33 +87,97 @@
   --color-accent-foreground: var(--accent-foreground);
   --color-destructive: var(--destructive);
   --color-destructive-foreground: var(--destructive-foreground);
+  --color-success: var(--success);
   --color-border: var(--border);
   --color-input: var(--input);
   --color-ring: var(--ring);
-  --color-chart-1: var(--chart-1);
-  --color-chart-2: var(--chart-2);
-  --color-chart-3: var(--chart-3);
-  --color-chart-4: var(--chart-4);
-  --color-chart-5: var(--chart-5);
+  --color-histoire: var(--subject-histoire);
+  --color-histoire-soft: var(--subject-histoire-soft);
+  --color-geographie: var(--subject-geographie);
+  --color-geographie-soft: var(--subject-geographie-soft);
+  --color-hggsp: var(--subject-hggsp);
+  --color-hggsp-soft: var(--subject-hggsp-soft);
   --radius-sm: calc(var(--radius) - 4px);
   --radius-md: calc(var(--radius) - 2px);
   --radius-lg: var(--radius);
   --radius-xl: calc(var(--radius) + 4px);
-  --color-sidebar: var(--sidebar);
-  --color-sidebar-foreground: var(--sidebar-foreground);
-  --color-sidebar-primary: var(--sidebar-primary);
-  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
-  --color-sidebar-accent: var(--sidebar-accent);
-  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
-  --color-sidebar-border: var(--sidebar-border);
-  --color-sidebar-ring: var(--sidebar-ring);
 }
 
 @layer base {
   * {
     @apply border-border outline-ring/50;
   }
+  html {
+    scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
+  }
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground antialiased;
+    font-feature-settings: "ss01", "cv11";
+  }
+  h1,
+  h2,
+  h3 {
+    text-wrap: balance;
+  }
+  p {
+    text-wrap: pretty;
+  }
+  ::selection {
+    background: color-mix(in oklch, var(--accent) 55%, transparent);
+  }
+}
+
+@layer components {
+  /* Corps de texte des fiches de cours */
+  .prose-hf {
+    @apply text-[1.0625rem] leading-[1.75] text-foreground/90;
+  }
+  .prose-hf p + p {
+    @apply mt-4;
+  }
+  .prose-hf strong {
+    @apply font-semibold text-foreground;
+  }
+
+  .eyebrow {
+    @apply text-xs font-semibold uppercase tracking-[0.14em] text-muted-foreground;
+  }
+
+  /* Lignes de cahier discrètes pour les fonds de section */
+  .paper-lines {
+    background-image: repeating-linear-gradient(
+      to bottom,
+      transparent 0,
+      transparent 31px,
+      color-mix(in oklch, var(--border) 70%, transparent) 31px,
+      color-mix(in oklch, var(--border) 70%, transparent) 32px
+    );
+  }
+
+  .flip-card {
+    perspective: 1200px;
+  }
+  .flip-card-inner {
+    transform-style: preserve-3d;
+    transition: transform 0.5s cubic-bezier(0.2, 0.7, 0.2, 1);
+  }
+  .flip-card[data-flipped="true"] .flip-card-inner {
+    transform: rotateY(180deg);
+  }
+  .flip-face {
+    backface-visibility: hidden;
+  }
+  .flip-back {
+    transform: rotateY(180deg);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  .flip-card-inner {
+    transition: none;
   }
 }
